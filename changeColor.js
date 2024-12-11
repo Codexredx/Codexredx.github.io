@@ -7,7 +7,6 @@ function changeColor()
         if (div.classList.contains('line 2'))
         {
             div.style.color = 'black';
-            lines.style.color = 'White';
         }
     });
 }
