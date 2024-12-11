@@ -1,4 +1,4 @@
-function colorChange()
+function changeColor()
 {
     var lines = document.querySelectorAll('div');
 
