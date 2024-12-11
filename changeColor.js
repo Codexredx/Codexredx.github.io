@@ -4,7 +4,7 @@ function changeColor()
 
     lines.forEach(function(div) 
     {
-        if (div.classList.contains('line'))
+        if (div.classList.contains('Line 2'))
         {
             div.style.backgroundcolor = 'black';
             div.style.color = 'white';
