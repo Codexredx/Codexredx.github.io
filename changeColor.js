@@ -1,6 +1,6 @@
 function changeColor()
 {
-    const lines = document.getElementById('div');
+    const lines = document.getElementById('line');
 
     lines.forEach(function(lines) 
     {
