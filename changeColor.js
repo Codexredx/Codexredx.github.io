@@ -2,7 +2,7 @@ function changeColor()
 {
     const lines = document.getElementById('div');
 
-    lines.forEach(function(div) 
+    lines.forEach(function(lines) 
     {
         if (lines.classList.contains('line'))
         {
