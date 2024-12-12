@@ -8,7 +8,19 @@
     <div>Line 3</div>  
     <button onclick="changeColor()">Change color</button>
     <script> 
-       src = "changeColor.js"
+       function changeColor()
+        {
+            var lines = document.querySelectorAll('div');
+
+            lines.forEach(function(div) 
+            {
+                if (div.classList.contains('line'))
+                {
+                    div.style.backgroundColor = 'white';
+                    div.style.color = 'black';
+                }
+            });
+        }
     </script>
 </Body>
 </html>
