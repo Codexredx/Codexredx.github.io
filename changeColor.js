@@ -1,13 +1,13 @@
 function changeColor()
 {
-    var lines = document.querySelectorAll('div');
+    const lines = document.getElementById('div');
 
     lines.forEach(function(div) 
     {
-        if (div.classList.contains('line'))
+        if (lines.classList.contains('line'))
         {
-            div.style.backgroundcolor = 'black';
-            div.style.color = 'white';
+            lines.style.backgroundcolor = 'black';
+            lines.style.color = 'white';
         }
     });
 }
