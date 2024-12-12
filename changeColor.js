@@ -6,8 +6,8 @@ function changeColor()
     {
         if (div.classList.contains('line'))
         {
-            div.style.backgroundColor = 'black';
-            div.style.color = 'white';
+            div.style.backgroundColor = 'blue';
+            div.style.color = 'red';
         }
     });
 }
