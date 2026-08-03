@@ -1,531 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="Conrad du Toit — IT Student & Aspiring Developer" name="description">
-  <meta name="google" content="notranslate" />
+  <meta content="Conrad du Toit — IT Honours student and aspiring developer" name="description">
+  <meta name="google" content="notranslate"/>
+  <meta name="msapplication-tap-highlight" content="no">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
   <link href="./assets/favicon.ico" rel="icon">
-  <title>Conrad du Toit</title>
-
-  <!-- Fonts (preconnect first for speed) -->
+  <title>Conrad du Toit — Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-  <!-- Original compiled CSS -->
   <link href="./main.3f6952e4.css" rel="stylesheet">
-  <!-- Retro theme overrides -->
-  <link href="./retro-theme.css" rel="stylesheet">
-
-  <style>
-  /* ================================================================
-     LOADING SCREEN
-     ================================================================ */
-  #ls {
-    position: fixed;
-    inset: 0;
-    background: #050510;
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    font-family: 'Orbitron', sans-serif;
-    transition: opacity 0.75s ease;
-  }
-  #ls.ls-out { opacity: 0; pointer-events: none; }
-
-  /* Sky gradient */
-  .ls-sky {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 25%,
-      rgba(100, 0, 160, 0.45) 0%,
-      #050510 70%
-    );
-  }
-
-  /* Stars */
-  .ls-stars { position: absolute; inset: 0 0 35% 0; overflow: hidden; }
-  .ls-star {
-    position: absolute;
-    border-radius: 50%;
-    background: #fff;
-    animation: twinkle 3s ease-in-out infinite alternate;
-  }
-  @keyframes twinkle {
-    from { opacity: 0.15; }
-    to   { opacity: 1; }
-  }
-
-  /* Synthwave sun */
-  .ls-sun-wrap {
-    position: absolute;
-    top: 7%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: clamp(140px, 28vw, 210px);
-    height: clamp(70px, 14vw, 105px);
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    overflow: hidden;
-    box-shadow:
-      0 0 50px rgba(255, 42, 109, 0.55),
-      0 0 100px rgba(211, 0, 197, 0.30),
-      0 0 160px rgba(120, 0, 200, 0.18);
-  }
-  .ls-sun {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-      #ffb347 0%,
-      #ff2a6d 30%,
-      #d300c5 60%,
-      #7700a6 90%
-    );
-  }
-  /* Horizontal stripe mask: covers bottom ~55% of sun */
-  .ls-sun-stripes {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 5px,
-      #050510 5px,
-      #050510 9px
-    );
-    -webkit-mask: linear-gradient(to bottom, transparent 42%, black 78%);
-    mask:         linear-gradient(to bottom, transparent 42%, black 78%);
-  }
-
-  /* Perspective grid */
-  .ls-grid-wrap {
-    position: absolute;
-    bottom: 19%;
-    left: 0;
-    width: 100%;
-    height: 56%;
-    perspective: 220px;
-    perspective-origin: 50% 0%;
-  }
-  .ls-grid {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 300%;
-    background-image:
-      linear-gradient(rgba(5, 217, 232, 0.55) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(5, 217, 232, 0.30) 1px, transparent 1px);
-    background-size: 80px 80px;
-    transform: rotateX(68deg);
-    transform-origin: center bottom;
-    animation: gridScroll 1.4s linear infinite;
-  }
-  @keyframes gridScroll {
-    from { background-position: 0 0; }
-    to   { background-position: 0 80px; }
-  }
-  /* Fade at the horizon */
-  .ls-grid-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 42%;
-    background: linear-gradient(to bottom, #050510, transparent);
-    z-index: 1;
-  }
-
-  /* Horizon glow line */
-  .ls-horizon {
-    position: absolute;
-    bottom: 19%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      var(--np, #ff2a6d) 20%,
-      var(--nm, #d300c5) 50%,
-      var(--np, #ff2a6d) 80%,
-      transparent 100%
-    );
-    box-shadow: 0 0 18px rgba(255, 42, 109, 0.7);
-    z-index: 5;
-  }
-
-  /* Road */
-  .ls-road {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 19%;
-    background: #060618;
-    overflow: hidden;
-    z-index: 4;
-  }
-  .ls-road::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 2px;
-    background: rgba(5, 217, 232, 0.5);
-    box-shadow: 0 0 10px rgba(5, 217, 232, 0.4);
-  }
-  /* Scrolling dashes via background-position */
-  .ls-road-dashes {
-    position: absolute;
-    top: calc(48% - 2px);
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: repeating-linear-gradient(
-      to right,
-      rgba(255,255,255,0.38) 0px,
-      rgba(255,255,255,0.38) 55px,
-      transparent 55px,
-      transparent 100px
-    );
-    animation: dashScroll 0.55s linear infinite;
-  }
-  @keyframes dashScroll {
-    from { background-position-x: 0; }
-    to   { background-position-x: -100px; }
-  }
-  /* Road shoulder lines */
-  .ls-road-left, .ls-road-right {
-    position: absolute;
-    bottom: 8%;
-    height: 2px;
-    width: 18%;
-    background: rgba(255, 42, 109, 0.4);
-  }
-  .ls-road-left  { left: 0; }
-  .ls-road-right { right: 0; }
-
-  /* Car wrapper — sits on the road surface */
-  .ls-car-scene {
-    position: absolute;
-    bottom: 19%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    line-height: 0;
-  }
-  .ls-car-svg {
-    width: clamp(230px, 44vw, 320px);
-    height: auto;
-    display: block;
-  }
-
-  /* Wheel spin */
-  .wheel-spokes {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: spinWheel 0.38s linear infinite;
-  }
-  @keyframes spinWheel {
-    to { transform: rotate(360deg); }
-  }
-
-  /* HUD */
-  .ls-hud {
-    position: absolute;
-    bottom: 2.5%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-    text-align: center;
-    width: min(82%, 500px);
-  }
-  .ls-title {
-    font-size: clamp(0.8rem, 2.8vw, 1.2rem);
-    color: #05d9e8;
-    letter-spacing: 0.55em;
-    text-shadow: 0 0 12px #05d9e8, 0 0 28px rgba(5,217,232,0.4);
-    margin-bottom: 10px;
-  }
-  .ls-cursor {
-    animation: blink 1s step-end infinite;
-    color: #ff2a6d;
-  }
-  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-
-  .ls-bar {
-    height: 4px;
-    background: rgba(5, 217, 232, 0.1);
-    border: 1px solid rgba(5, 217, 232, 0.25);
-    margin-bottom: 7px;
-    overflow: visible;
-    position: relative;
-  }
-  #ls-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(to right, #d300c5, #ff2a6d, #05d9e8);
-    position: relative;
-    transition: width 0.12s linear;
-  }
-  #ls-fill::after {
-    content: '';
-    position: absolute;
-    right: -1px; top: -4px;
-    width: 3px; height: 12px;
-    background: #05d9e8;
-    box-shadow: 0 0 8px #05d9e8, 0 0 18px #05d9e8;
-  }
-  .ls-pct-label {
-    font-size: 0.6rem;
-    color: rgba(5,217,232,0.55);
-    letter-spacing: 0.3em;
-  }
-  #ls-pct { color: #ff2a6d; text-shadow: 0 0 6px #ff2a6d; }
-  </style>
+  <link href="./retro-theme.css"   rel="stylesheet">
+  <link href="./loader.css"        rel="stylesheet">
 </head>
 
 <body class="minimal">
 
-<!-- ============================================================
-     LOADING SCREEN
-     ============================================================ -->
 <div id="ls">
-  <div class="ls-sky"></div>
-
-  <!-- Stars (filled by JS below) -->
-  <div class="ls-stars" id="ls-stars"></div>
-
-  <!-- Synthwave sun -->
-  <div class="ls-sun-wrap">
-    <div class="ls-sun"></div>
-    <div class="ls-sun-stripes"></div>
-  </div>
-
-  <!-- Perspective grid -->
-  <div class="ls-grid-wrap"><div class="ls-grid"></div></div>
-
-  <!-- Horizon glow -->
-  <div class="ls-horizon"></div>
-
-  <!-- Road -->
-  <div class="ls-road">
-    <div class="ls-road-dashes"></div>
-    <div class="ls-road-left"></div>
-    <div class="ls-road-right"></div>
-  </div>
-
-  <!-- ── Retro Car SVG ── -->
-  <div class="ls-car-scene">
-    <svg class="ls-car-svg" viewBox="0 0 320 128" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="gpink" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <filter id="gcyan" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-
-      <!-- Ground reflection glow -->
-      <ellipse cx="155" cy="122" rx="140" ry="6" fill="rgba(255,42,109,0.09)"/>
-
-      <!-- Speed lines (front-left of car) -->
-      <line x1="0"  y1="52" x2="24" y2="52" stroke="#05d9e8" stroke-width="2"   opacity="0.9"/>
-      <line x1="0"  y1="62" x2="17" y2="62" stroke="#05d9e8" stroke-width="1.5" opacity="0.65"/>
-      <line x1="0"  y1="71" x2="12" y2="71" stroke="#05d9e8" stroke-width="1"   opacity="0.45"/>
-      <line x1="0"  y1="80" x2="8"  y2="80" stroke="#05d9e8" stroke-width="0.8" opacity="0.25"/>
-
-      <!-- ── Car body (lower rectangle) ── -->
-      <rect x="28" y="68" width="254" height="30" rx="4"
-            fill="#0d0d2b" stroke="#ff2a6d" stroke-width="1.6" filter="url(#gpink)"/>
-
-      <!-- Side accent stripe -->
-      <rect x="28" y="84" width="254" height="3" fill="rgba(5,217,232,0.28)"/>
-
-      <!-- ── Cab (trapezoid) ── -->
-      <path d="M 82 68 L 106 37 L 214 37 L 238 68 Z"
-            fill="#0d0d2b" stroke="#ff2a6d" stroke-width="1.6" filter="url(#gpink)"/>
-
-      <!-- Roof highlight bar -->
-      <rect x="120" y="35" width="70" height="4" rx="2"
-            fill="#ff2a6d" opacity="0.75" filter="url(#gpink)"/>
-
-      <!-- ── Windows ── -->
-      <!-- Front -->
-      <path d="M 89 66 L 110 41 L 148 41 L 148 66 Z"
-            fill="#05d9e8" fill-opacity="0.17" stroke="#05d9e8" stroke-width="0.8" stroke-opacity="0.55"/>
-      <!-- Centre post -->
-      <rect x="148" y="41" width="22" height="25" fill="#090920"
-            stroke="#ff2a6d" stroke-width="0.6" stroke-opacity="0.5"/>
-      <!-- Rear -->
-      <path d="M 170 41 L 210 41 L 232 66 L 170 66 Z"
-            fill="#05d9e8" fill-opacity="0.17" stroke="#05d9e8" stroke-width="0.8" stroke-opacity="0.55"/>
-
-      <!-- ── Headlight ── -->
-      <rect x="25" y="74" width="14" height="9" rx="2"
-            fill="#05d9e8" filter="url(#gcyan)"/>
-      <!-- Beam -->
-      <polygon points="0,73 25,75 25,83 0,88"
-               fill="#05d9e8" opacity="0.07"/>
-
-      <!-- ── Taillight ── -->
-      <rect x="269" y="74" width="11" height="9" rx="2"
-            fill="#ff2a6d" filter="url(#gpink)"/>
-
-      <!-- ── Front wheel ── -->
-      <circle cx="80"  cy="103" r="23" fill="#050510" stroke="#ff2a6d" stroke-width="2"   filter="url(#gpink)"/>
-      <circle cx="80"  cy="103" r="14" fill="#0d0d1a" stroke="#ff2a6d" stroke-width="1.5"/>
-      <g class="wheel-spokes">
-        <line x1="80"  y1="89"  x2="80"  y2="117" stroke="#ff2a6d" stroke-width="1.6"/>
-        <line x1="66"  y1="103" x2="94"  y2="103" stroke="#ff2a6d" stroke-width="1.6"/>
-        <line x1="70"  y1="93"  x2="90"  y2="113" stroke="#ff2a6d" stroke-width="1.1"/>
-        <line x1="70"  y1="113" x2="90"  y2="93"  stroke="#ff2a6d" stroke-width="1.1"/>
-      </g>
-      <circle cx="80"  cy="103" r="4"  fill="#ff2a6d" filter="url(#gpink)"/>
-
-      <!-- ── Rear wheel ── -->
-      <circle cx="230" cy="103" r="23" fill="#050510" stroke="#ff2a6d" stroke-width="2"   filter="url(#gpink)"/>
-      <circle cx="230" cy="103" r="14" fill="#0d0d1a" stroke="#ff2a6d" stroke-width="1.5"/>
-      <g class="wheel-spokes">
-        <line x1="230" y1="89"  x2="230" y2="117" stroke="#ff2a6d" stroke-width="1.6"/>
-        <line x1="216" y1="103" x2="244" y2="103" stroke="#ff2a6d" stroke-width="1.6"/>
-        <line x1="220" y1="93"  x2="240" y2="113" stroke="#ff2a6d" stroke-width="1.1"/>
-        <line x1="220" y1="113" x2="240" y2="93"  stroke="#ff2a6d" stroke-width="1.1"/>
-      </g>
-      <circle cx="230" cy="103" r="4"  fill="#ff2a6d" filter="url(#gpink)"/>
-
-      <!-- ── Exhaust pipe ── -->
-      <rect x="275" y="92" width="22" height="5" rx="2.5" fill="#2a2a3a"/>
-      <rect x="294" y="90" width="7"  height="9" rx="3"   fill="#222230"/>
-
-      <!-- ── Exhaust smoke (SMIL animations, 3 offset particles) ── -->
-      <circle r="0" fill="rgba(190,190,210,0.75)">
-        <animate attributeName="cx"      values="296;276;252" dur="1.9s" repeatCount="indefinite"/>
-        <animate attributeName="cy"      values="91;72;50"    dur="1.9s" repeatCount="indefinite"/>
-        <animate attributeName="r"       values="4;9;17"      dur="1.9s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.75;0.35;0" dur="1.9s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="0" fill="rgba(190,190,210,0.75)">
-        <animate attributeName="cx"      values="296;276;252" dur="1.9s" begin="0.63s" repeatCount="indefinite"/>
-        <animate attributeName="cy"      values="91;72;50"    dur="1.9s" begin="0.63s" repeatCount="indefinite"/>
-        <animate attributeName="r"       values="4;9;17"      dur="1.9s" begin="0.63s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.75;0.35;0" dur="1.9s" begin="0.63s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="0" fill="rgba(190,190,210,0.75)">
-        <animate attributeName="cx"      values="296;276;252" dur="1.9s" begin="1.26s" repeatCount="indefinite"/>
-        <animate attributeName="cy"      values="91;72;50"    dur="1.9s" begin="1.26s" repeatCount="indefinite"/>
-        <animate attributeName="r"       values="4;9;17"      dur="1.9s" begin="1.26s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.75;0.35;0" dur="1.9s" begin="1.26s" repeatCount="indefinite"/>
-      </circle>
-
-      <!-- ── Tyre smoke from rear wheel contact patch ── -->
-      <circle r="0" fill="rgba(170,170,190,0.65)">
-        <animate attributeName="cx"      values="230;212;192" dur="1.5s" repeatCount="indefinite"/>
-        <animate attributeName="cy"      values="126;108;88"  dur="1.5s" repeatCount="indefinite"/>
-        <animate attributeName="r"       values="3;7;14"      dur="1.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.65;0.3;0"  dur="1.5s" repeatCount="indefinite"/>
-      </circle>
-      <circle r="0" fill="rgba(170,170,190,0.65)">
-        <animate attributeName="cx"      values="230;212;192" dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
-        <animate attributeName="cy"      values="126;108;88"  dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
-        <animate attributeName="r"       values="3;7;14"      dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.65;0.3;0"  dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
-      </circle>
-    </svg>
-  </div>
-  <!-- ── End car ── -->
-
-  <!-- HUD -->
+  <div class="ls-road"><div class="ls-road-dashes"></div></div>
+  <div class="ls-car-scene"></div>
   <div class="ls-hud">
     <div class="ls-title">LOADING<span class="ls-cursor">_</span></div>
     <div class="ls-bar"><div id="ls-fill"></div></div>
     <div class="ls-pct-label"><span id="ls-pct">0</span>%</div>
   </div>
 </div>
-<!-- ============================================================
-     END LOADING SCREEN
-     ============================================================ -->
+<script src="./loader.js"></script>
 
-<!-- Inline script runs immediately so stars appear before fonts load -->
-<script>
-// ── Generate stars ──────────────────────────────────────────────
-(function () {
-  var c = document.getElementById('ls-stars');
-  if (!c) return;
-  for (var i = 0; i < 72; i++) {
-    var s  = document.createElement('div');
-    s.className = 'ls-star';
-    var sz = Math.random() * 2.4 + 0.4;
-    s.style.cssText =
-      'width:'            + sz             + 'px;'  +
-      'height:'           + sz             + 'px;'  +
-      'top:'              + Math.random() * 100 + '%;'  +
-      'left:'             + Math.random() * 100 + '%;'  +
-      'animation-delay:'  + (Math.random() * 3).toFixed(2) + 's;' +
-      'animation-duration:' + (2 + Math.random() * 2).toFixed(2) + 's;';
-    c.appendChild(s);
-  }
-})();
-
-// ── Loading progress ────────────────────────────────────────────
-(function () {
-  var screen = document.getElementById('ls');
-  var fill   = document.getElementById('ls-fill');
-  var label  = document.getElementById('ls-pct');
-  if (!screen) return;
-
-  var start     = Date.now();
-  var MIN_MS    = 3000;   // always show for at least 3 s
-  var pageReady = false;
-  var raf;
-
-  function update () {
-    var elapsed = (Date.now() - start) / 1000;
-    // Smooth ease-out curve; stalls near 92% until page is ready
-    var target  = pageReady ? 1 : Math.min(0.92, 1 - Math.pow(1 - Math.min(elapsed / 2.8, 1), 1.9));
-    var current = parseFloat(fill.style.width || '0') / 100;
-    current     = current + (target - current) * 0.06;
-
-    fill.style.width    = (current * 100).toFixed(2) + '%';
-    label.textContent   = Math.floor(current * 100);
-
-    if (current < 0.999) {
-      raf = requestAnimationFrame(update);
-    } else {
-      dismiss();
-    }
-  }
-
-  function dismiss () {
-    cancelAnimationFrame(raf);
-    fill.style.width  = '100%';
-    label.textContent = '100';
-    setTimeout(function () {
-      screen.classList.add('ls-out');
-      setTimeout(function () { screen.style.display = 'none'; }, 780);
-    }, 280);
-  }
-
-  // Release the bar to 100% once page is fully loaded AND min time has passed
-  window.addEventListener('load', function () {
-    var elapsed = Date.now() - start;
-    var wait    = Math.max(0, MIN_MS - elapsed);
-    setTimeout(function () { pageReady = true; }, wait);
-  });
-
-  // Safety net — always hide after 8 s
-  setTimeout(function () { pageReady = true; }, 8000);
-
-  requestAnimationFrame(update);
-})();
-</script>
-
-<!-- ── Site layout ── -->
 <div id="site-border-left"></div>
 <div id="site-border-right"></div>
 <div id="site-border-top"></div>
@@ -535,19 +40,16 @@
   <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
       <button type="button" class="navbar-toggle collapsed"
-              data-toggle="collapse" data-target="#navbar-collapse"
-              aria-expanded="false">
+              data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="./index.html"   title="">01 : Home</a></li>
-          <li><a href="./works.html"   title="">02 : Works and Academia</a></li>
-          <li><a href="./about.html"   title="">03 : About me</a></li>
-          <li><a href="./contact.html" title="">04 : Contact me</a></li>
+          <li><a href="./index.html">01 : Home</a></li>
+          <li><a href="./works.html">02 : Works and Academia</a></li>
+          <li><a href="./about.html">03 : About me</a></li>
+          <li><a href="./contact.html">04 : Contact me</a></li>
         </ul>
       </div>
     </div>
@@ -565,16 +67,52 @@
               <span id="typed-strings">
                 <span>I'm Conrad du Toit.</span>
                 <span>An aspiring developer.</span>
-                <span>Studying at UP.</span>
+                <span>Honours CS at UP.</span>
               </span>
               <span id="typed"></span>
             </h1>
+            <div class="hero-cta">
+              <a href="./works.html"   class="btn btn-default btn-lg">See My Work</a>
+              <a href="./contact.html" class="btn btn-default btn-lg">Get In Touch</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<footer class="retro-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h4>Conrad du Toit</h4>
+        <p>Honours CS student at the University of Pretoria.<br>
+           Open to graduate roles and internships in ML, data engineering and software development.</p>
+      </div>
+      <div class="col-sm-4">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="./index.html">01 : Home</a></li>
+          <li><a href="./works.html">02 : Works and Academia</a></li>
+          <li><a href="./about.html">03 : About me</a></li>
+          <li><a href="./contact.html">04 : Contact me</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h4>Connect</h4>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/conrad-du-toit-13b1131aa/" title="LinkedIn" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a>
+          <!-- Replace YOUR-USERNAME with your actual GitHub username -->
+          <a href="https://github.com/YOUR-USERNAME" title="GitHub" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Conrad du Toit &nbsp;&middot;&nbsp; Built with HTML5 &amp; hosted on GitHub Pages</p>
+    </div>
+  </div>
+</footer>
 
 <script>
   document.addEventListener('DOMContentLoaded', function (event) {

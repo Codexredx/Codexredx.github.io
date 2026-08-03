@@ -1,144 +1,36 @@
-
 #ls {
-  position: fixed;
+    position: fixed;
   inset: 0;
-  background: #050510;
+  background: url('./assets/images/retro wave.jpg') center center / cover no-repeat;
   z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   font-family: 'Orbitron', sans-serif;
   transition: opacity 0.75s ease;
 }
 #ls.ls-out { opacity: 0; pointer-events: none; }
 
-/* ── Sky gradient ─────────────────────────────────────────────── */
-.ls-sky {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 25%,
-    rgba(100, 0, 160, 0.45) 0%,
-    #050510 70%
-  );
-}
-
-/* ── Stars ────────────────────────────────────────────────────── */
-.ls-stars { position: absolute; inset: 0 0 35% 0; overflow: hidden; }
-.ls-star {
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
-  animation: twinkle 3s ease-in-out infinite alternate;
-}
-@keyframes twinkle {
-  from { opacity: 0.12; }
-  to   { opacity: 1; }
-}
-
-/* ── Synthwave sun ────────────────────────────────────────────── */
-.ls-sun-wrap {
-  position: absolute;
-  top: 7%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(140px, 28vw, 210px);
-  height: clamp(70px, 14vw, 105px);
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  overflow: hidden;
-  box-shadow:
-    0 0 50px rgba(255, 42, 109, 0.55),
-    0 0 100px rgba(211, 0, 197, 0.30),
-    0 0 160px rgba(120, 0, 200, 0.18);
-}
-.ls-sun {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom,
-    #ffb347 0%,
-    #ff2a6d 30%,
-    #d300c5 60%,
-    #7700a6 90%
-  );
-}
-/* Horizontal stripe mask – covers lower 55% of the sun */
-.ls-sun-stripes {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px, transparent 5px,
-    #050510     5px, #050510    9px
-  );
-  -webkit-mask: linear-gradient(to bottom, transparent 42%, black 78%);
-  mask:         linear-gradient(to bottom, transparent 42%, black 78%);
-}
-
-/* ── Perspective grid ─────────────────────────────────────────── */
-.ls-grid-wrap {
-  position: absolute;
-  bottom: 19%;
-  left: 0;
-  width: 100%;
-  height: 56%;
-  perspective: 220px;
-  perspective-origin: 50% 0%;
-}
-.ls-grid {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 300%;
-  background-image:
-    linear-gradient(rgba(5, 217, 232, 0.55) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(5, 217, 232, 0.30) 1px, transparent 1px);
-  background-size: 80px 80px;
-  transform: rotateX(68deg);
-  transform-origin: center bottom;
-  animation: gridScroll 1.4s linear infinite;
-}
-@keyframes gridScroll {
-  from { background-position: 0 0; }
-  to   { background-position: 0 80px; }
-}
-/* Fade at the horizon */
-.ls-grid-wrap::after {
+/* Dark overlay so the HUD and car stand out against the image */
+#ls::before {
   content: '';
   position: absolute;
-  inset: 0 0 auto 0;
-  height: 44%;
-  background: linear-gradient(to bottom, #050510, transparent);
-  z-index: 1;
-}
-
-/* ── Horizon glow line ────────────────────────────────────────── */
-.ls-horizon {
-  position: absolute;
-  bottom: 19%;
-  left: 0;
-  width: 100%;
-  height: 2px;
+  inset: 0;
   background: linear-gradient(
-    to right,
-    transparent  0%,
-    #ff2a6d      20%,
-    #d300c5      50%,
-    #ff2a6d      80%,
-    transparent  100%
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.10) 60%,
+    transparent 100%
   );
-  box-shadow: 0 0 18px rgba(255, 42, 109, 0.7);
-  z-index: 5;
+  z-index: 0;
 }
 
-/* ── Road ─────────────────────────────────────────────────────── */
+/* ── Road strip at the bottom ────────────────────────────────── */
 .ls-road {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 19%;
-  background: #060618;
+  height: 18%;
+  background: rgba(4, 4, 20, 0.55);
   overflow: hidden;
   z-index: 4;
 }
@@ -146,10 +38,9 @@
   content: '';
   position: absolute;
   top: 0; left: 0; width: 100%; height: 2px;
-  background: rgba(5, 217, 232, 0.55);
-  box-shadow: 0 0 10px rgba(5, 217, 232, 0.4);
+  background: rgba(5, 217, 232, 0.75);
+  box-shadow: 0 0 12px rgba(5, 217, 232, 0.55);
 }
-/* Animated centre dashes */
 .ls-road-dashes {
   position: absolute;
   top: calc(48% - 2px);
@@ -158,8 +49,8 @@
   height: 4px;
   background: repeating-linear-gradient(
     to right,
-    rgba(255, 255, 255, 0.38)  0px,
-    rgba(255, 255, 255, 0.38) 55px,
+    rgba(255, 255, 255, 0.42)  0px,
+    rgba(255, 255, 255, 0.42) 55px,
     transparent               55px,
     transparent              100px
   );
@@ -170,10 +61,10 @@
   to   { background-position-x: -100px; }
 }
 
-/* ── Car scene (SVG injected by loader.js) ────────────────────── */
+/* ── Car scene ───────────────────────────────────────────────── */
 .ls-car-scene {
   position: absolute;
-  bottom: 19%;
+  bottom: 18%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -183,9 +74,11 @@
   width: clamp(260px, 52vw, 380px);
   height: auto;
   display: block;
+  /* Flip car to face RIGHT — standard driving direction */
+  transform: scaleX(-1);
 }
 
-/* ── Wheel spin ───────────────────────────────────────────────── */
+/* ── Wheel spin ──────────────────────────────────────────────── */
 .wheel-spokes {
   transform-box: fill-box;
   transform-origin: center;
@@ -195,7 +88,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* ── HUD ──────────────────────────────────────────────────────── */
+/* ── HUD (title + progress bar) ─────────────────────────────── */
 .ls-hud {
   position: absolute;
   bottom: 2%;
@@ -209,17 +102,17 @@
   font-size: clamp(0.8rem, 2.8vw, 1.2rem);
   color: #05d9e8;
   letter-spacing: 0.55em;
-  text-shadow: 0 0 12px #05d9e8, 0 0 28px rgba(5, 217, 232, 0.4);
+  text-shadow: 0 0 12px #05d9e8, 0 0 28px rgba(5,217,232,0.45);
   margin-bottom: 10px;
 }
 .ls-cursor { animation: blink 1s step-end infinite; color: #ff2a6d; }
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
 
 .ls-bar {
   height: 4px;
-  background: rgba(5, 217, 232, 0.10);
-  border: 1px solid rgba(5, 217, 232, 0.25);
-  margin-bottom: 8px;
+  background: rgba(5, 217, 232, 0.12);
+  border: 1px solid rgba(5, 217, 232, 0.30);
+  margin-bottom: 7px;
   overflow: visible;
   position: relative;
 }
@@ -238,5 +131,5 @@
   background: #05d9e8;
   box-shadow: 0 0 8px #05d9e8, 0 0 18px #05d9e8;
 }
-.ls-pct-label { font-size: 0.6rem; color: rgba(5, 217, 232, 0.55); letter-spacing: 0.3em; }
+.ls-pct-label { font-size: 0.6rem; color: rgba(5,217,232,0.60); letter-spacing: 0.3em; }
 #ls-pct       { color: #ff2a6d; text-shadow: 0 0 6px #ff2a6d; }
