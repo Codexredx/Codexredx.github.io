@@ -71,18 +71,51 @@
   line-height: 0;
 }
 .ls-car-svg {
-  width: clamp(260px, 52vw, 380px);
+  width: clamp(300px, 58vw, 440px);
   height: auto;
   display: block;
-  /* Flip car to face RIGHT — standard driving direction */
-  transform: scaleX(-1);
+  /* Pivot near the rear wheel so launch/brake pitching looks natural */
+  transform-origin: 26% 81%;
+  /* Entry: car rolls in from off-screen left and brakes to a stop */
+  animation: driveIn 1.5s both;
 }
+@keyframes driveIn {
+  0%   { transform: translateX(-120vw) rotate(0deg); animation-timing-function: cubic-bezier(0.1, 0.6, 0.35, 1); }
+  72%  { transform: translateX(1.2vw) rotate(0deg);  animation-timing-function: ease-out; }
+  86%  { transform: translateX(0.1vw) rotate(1.2deg); animation-timing-function: ease-in-out; }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+/* ── Idle in the middle while loading ───────────────────────── */
+#ls.ls-idle .ls-car-svg { animation: carIdle 0.14s linear infinite; }
+@keyframes carIdle {
+  0%, 100% { transform: translateY(0); }
+  30%      { transform: translateY(-1px); }
+  60%      { transform: translateY(0.5px); }
+}
+#ls.ls-idle .wheel-spokes   { animation-play-state: paused; }
+#ls.ls-idle .ls-road-dashes { animation-play-state: paused; }
+/* Motion cues (speed lines, tyre smoke) fade out while stationary */
+.ls-speed, .ls-tsmoke { transition: opacity 0.4s ease; }
+#ls.ls-idle .ls-speed, #ls.ls-idle .ls-tsmoke { opacity: 0; }
+
+/* ── Drive-off when loading completes ───────────────────────── */
+#ls.ls-drive .ls-car-svg {
+  animation: driveOff 1.2s cubic-bezier(0.5, 0, 0.85, 0.4) forwards;
+}
+@keyframes driveOff {
+  0%   { transform: translateX(0) rotate(0deg); }
+  18%  { transform: translateX(2vw) rotate(-4deg); }
+  100% { transform: translateX(125vw) rotate(0deg); }
+}
+#ls.ls-drive .wheel-spokes   { animation-duration: 0.12s; animation-play-state: running; }
+#ls.ls-drive .ls-road-dashes { animation-duration: 0.2s;  animation-play-state: running; }
 
 /* ── Wheel spin ──────────────────────────────────────────────── */
 .wheel-spokes {
   transform-box: fill-box;
   transform-origin: center;
-  animation: spinWheel 0.35s linear infinite;
+  animation: spinWheel 0.18s linear infinite;
 }
 @keyframes spinWheel {
   to { transform: rotate(360deg); }
