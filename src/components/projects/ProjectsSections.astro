@@ -1,0 +1,69 @@
+---
+import { getBundle } from '~/lib/content';
+import { renderRichText } from '~/lib/prismic';
+
+const page = getBundle().pages.projects;
+
+// projects_title is [intro paragraph, heading]
+const heading = page.projects_title[0]?.text ?? '';
+const title = page.projects_title[1]?.text ?? '';
+---
+
+<section id="projects-intro">
+  <div class="projects-title-container">
+    <p class="heading">{heading}</p>
+    <h2 class="title"><span>{title}</span></h2>
+  </div>
+  <div class="projects-intro-text" set:html={renderRichText(page.projects_intro)} />
+</section>
+
+<section id="projects-cards">
+  <ul class="project-grid">
+    {
+      page.cards.map((card) => (
+        <li class="project-card">
+          <div class="card-media">
+            <img
+              src={card.image}
+              alt={card.alt}
+              width="1400"
+              height="933"
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="card-body">
+            <p class="card-index">
+              {card.index} / {String(page.cards.length).padStart(3, '0')}
+              {card.current && <span class="card-badge">&#9679; Current</span>}
+            </p>
+
+            <h3 class="card-title">{card.title}</h3>
+
+            <p class="card-meta">
+              <span class="meta-label">{card.meta_label}</span>
+              {card.meta_value}
+              <span class="meta-sep">/</span>
+              {card.period}
+            </p>
+
+            <div class="card-text" set:html={renderRichText(card.description)} />
+
+            <ul class="card-tags">
+              {card.technologies.map((tech) => (
+                <li>{tech}</li>
+              ))}
+            </ul>
+
+            {card.link && (
+              <a class="card-link" href={card.link} target="_blank" rel="noreferrer">
+                Visit &gt;&gt;&gt;
+              </a>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,0 +1,34 @@
+---
+import type { RichText } from '~/lib/prismic';
+
+/**
+ * The original wrapped title text in nested <span> pairs so GSAP could reveal
+ * each line by translating the inner span behind the clipped outer one.
+ *
+ * - `by="block"`  : one wrapper per rich-text block (used by most headings)
+ * - `by="word"`   : one wrapper per word of a single block (used by the intro)
+ * - `nested={false}` : single <span> instead of a pair (used by more-text-2)
+ */
+export interface Props {
+  field: RichText;
+  by?: 'block' | 'word';
+  nested?: boolean;
+}
+
+const { field, by = 'block', nested = true } = Astro.props;
+
+const parts =
+  by === 'word'
+    ? field.flatMap((b) => b.text.split(' ').filter(Boolean))
+    : field.map((b) => b.text);
+---
+
+{
+  parts.map((text) =>
+    nested ? (
+      <span><span>{text}</span></span>
+    ) : (
+      <span>{text}</span>
+    )
+  )
+}

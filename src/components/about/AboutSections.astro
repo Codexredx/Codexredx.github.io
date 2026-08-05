@@ -1,0 +1,93 @@
+---
+import { getBundle } from '~/lib/content';
+import { renderRichText } from '~/lib/prismic';
+
+const page = getBundle().pages.about;
+
+// about_title is [intro paragraph, heading]
+const heading = page.about_title[0]?.text ?? '';
+const title = page.about_title[1]?.text ?? '';
+---
+
+<section id="about-intro">
+  <div class="about-title-container">
+    <p class="heading">{heading}</p>
+    <h2 class="title"><span>{title}</span></h2>
+  </div>
+</section>
+
+<section id="about-body">
+  <div class="about-grid">
+    <div class="about-main">
+      <div class="status-box" set:html={renderRichText(page.status)} />
+
+      <h3 class="about-heading">{page.background_title}</h3>
+      <div class="about-text" set:html={renderRichText(page.background_text)} />
+
+      {
+        page.logo_groups.map((group) => (
+          <>
+            <h3 class="about-heading">{group.title}</h3>
+            <ul class="logo-grid">
+              {group.items.map((item) => (
+                <li class="logo-tile">
+                  {item.icon ? (
+                    <img src={item.icon} alt="" width="44" height="44" loading="lazy" decoding="async" />
+                  ) : (
+                    <span class="logo-mark" aria-hidden="true">
+                      {item.label.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase()}
+                    </span>
+                  )}
+                  <span class="logo-name">{item.label}</span>
+                </li>
+              ))}
+            </ul>
+            {group.tags && (
+              <ul class="tag-list cyan logo-grid-tags">
+                {group.tags.map((tag) => (
+                  <li>{tag}</li>
+                ))}
+              </ul>
+            )}
+          </>
+        ))
+      }
+
+      {
+        page.tag_groups.map((group) => (
+          <>
+            <h3 class="about-heading">{group.title}</h3>
+            <ul class:list={['tag-list', group.accent]}>
+              {group.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </>
+        ))
+      }
+
+      <h3 class="about-heading">{page.interests_title}</h3>
+      <div class="about-text" set:html={renderRichText(page.interests_text)} />
+      <ul class="tag-list cyan">
+        {page.interests_tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+
+      <h3 class="about-heading">{page.languages_title}</h3>
+      <ul class="tag-list pink">
+        {page.languages.map((lang) => <li>{lang}</li>)}
+      </ul>
+    </div>
+
+    <aside class="about-aside">
+      <figure class="about-photo">
+        <img
+          src={page.photo.url}
+          alt={page.photo.alt}
+          width={page.photo.width}
+          height={page.photo.height}
+          decoding="async"
+        />
+      </figure>
+    </aside>
+  </div>
+</section>

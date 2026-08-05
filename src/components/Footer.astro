@@ -1,0 +1,57 @@
+---
+import { getBundle, pagePath } from '~/lib/content';
+import type { PageKey } from '~/lib/content';
+
+const bundle = getBundle();
+const footer = bundle.footer;
+const menu = bundle.menu;
+
+const NAME = 'Conrad du Toit';
+
+const pages = menu.pages.map((p) => ({
+  label: p.label,
+  href: pagePath(p.page as PageKey),
+}));
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-simple">
+    <div class="footer-brand">
+      <p class="brand-name">{NAME}</p>
+      <p class="brand-role">{footer.footer_role}</p>
+      <p class="brand-note">{footer.footer_cta}</p>
+    </div>
+
+    <ul class="footer-col">
+      <li class="col-title">{footer.footer_pages_title}</li>
+      {pages.map((p) => (
+        <li><a href={p.href}>{p.label}</a></li>
+      ))}
+    </ul>
+
+    <ul class="footer-col">
+      <li class="col-title">{footer.footer_social_title}</li>
+      {menu.socials.map((s) => (
+        <li><a href={s.url} target="_blank" rel="noreferrer">{s.label}</a></li>
+      ))}
+    </ul>
+
+    <ul class="footer-col">
+      <li class="col-title">{footer.footer_contact_title}</li>
+      {menu.contact.map((c) => (
+        <li>
+          {c.url ? <a href={c.url}>{c.value}</a> : <span>{c.value}</span>}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="footer-copyright">
+    <p>&copy; {year} {NAME}.</p>
+  </div>
+
+  <div class="footer-bg"></div>
+  <div class="footer-fade"></div>
+</footer>

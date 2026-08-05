@@ -1,0 +1,218 @@
+/*
+ * Projects page — a plain card list.
+ *
+ * The page is a normal document: `.main-projects` in global.css carries only
+ * the background and stacking context, everything else lives here.
+ */
+
+/* ---- intro ---- */
+#projects-intro {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 180px 25px 0;
+  text-align: center;
+}
+
+#projects-intro .projects-title-container .heading {
+  font-size: 17px;
+  margin: 0;
+}
+
+#projects-intro .projects-title-container .title {
+  font-family: Powerr;
+  text-transform: uppercase;
+  font-size: 112px;
+  line-height: 1;
+  margin: 0;
+  overflow: hidden;
+}
+
+#projects-intro .projects-title-container .title span {
+  display: inline-flex;
+}
+
+#projects-intro .projects-intro-text {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  max-width: 620px;
+  margin: 25px auto 0;
+}
+
+/* ---- card grid ---- */
+#projects-cards {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 75px 25px 0;
+}
+
+.project-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 50px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f5d7e3;
+  background-color: #0d0221;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover {
+  border-color: #2de2e6;
+  transform: translateY(-4px);
+}
+
+.project-card .card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-bottom: 1px solid #f5d7e3;
+}
+
+.project-card .card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.35) contrast(1.05);
+  transition: filter 0.35s ease, transform 0.6s ease;
+}
+
+.project-card:hover .card-media img {
+  filter: none;
+  transform: scale(1.04);
+}
+
+.project-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 25px;
+}
+
+.project-card .card-index {
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #2de2e6;
+}
+
+.project-card .card-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border: 1px solid #f6019d;
+  color: #f6019d;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.project-card .card-title {
+  font-family: Powerr;
+  text-transform: uppercase;
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 10px 0 0;
+}
+
+.project-card .card-meta {
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #f5d7e3;
+}
+
+.project-card .card-meta .meta-label {
+  color: #f6019d;
+  margin-right: 8px;
+}
+
+.project-card .card-meta .meta-sep {
+  margin: 0 8px;
+  color: #540d6e;
+}
+
+.project-card .card-text {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.project-card .card-text p {
+  margin: 0 0 1em;
+}
+
+.project-card .card-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: auto 0 0;
+  padding: 15px 0 0;
+}
+
+.project-card .card-tags li {
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid #540d6e;
+  color: #f5d7e3;
+}
+
+.project-card .card-link {
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: 1px solid #f5d7e3;
+  width: max-content;
+}
+
+.project-card .card-link:hover {
+  background-color: #f5d7e3;
+  color: #0d0221;
+}
+
+@media screen and (max-width: 1024px) {
+  #projects-intro .projects-title-container .title {
+    font-size: 85px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #projects-intro {
+    padding: 140px 10px 0;
+  }
+
+  #projects-intro .projects-title-container .title {
+    font-size: 48px;
+  }
+
+  #projects-cards {
+    padding: 50px 10px 0;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .project-card .card-title {
+    font-size: 27px;
+  }
+
+  .project-card .card-body {
+    padding: 15px;
+  }
+}

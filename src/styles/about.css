@@ -1,0 +1,266 @@
+/*
+ * About page — a plain document: heading, then a two-column body with the
+ * text/skills on the left and the photo alongside.
+ */
+
+.main-about {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background-color: #0d0221;
+}
+
+/* ---- heading ---- */
+#about-intro {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 180px 25px 0;
+  text-align: center;
+}
+
+#about-intro .about-title-container .heading {
+  font-size: 17px;
+  margin: 0;
+}
+
+#about-intro .about-title-container .title {
+  font-family: Powerr;
+  text-transform: uppercase;
+  font-size: 112px;
+  line-height: 1;
+  margin: 0;
+  overflow: hidden;
+}
+
+#about-intro .about-title-container .title span {
+  display: inline-flex;
+}
+
+/* ---- body ---- */
+#about-body {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 75px 25px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 60px;
+  align-items: start;
+}
+
+.about-aside {
+  position: sticky;
+  top: 120px;
+}
+
+.about-photo {
+  margin: 0;
+  border: 2px solid #f6019d;
+  box-shadow: 0 0 24px rgba(246, 1, 157, 0.45), 0 0 60px rgba(246, 1, 157, 0.15);
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- status ---- */
+.status-box {
+  position: relative;
+  border: 1px solid #2de2e6;
+  background: rgba(45, 226, 230, 0.06);
+  padding: 18px 25px 18px 45px;
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+}
+
+.status-box::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 22px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2de2e6;
+  box-shadow: 0 0 8px #2de2e6;
+  animation: about-pulse 2s ease-in-out infinite;
+}
+
+@keyframes about-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.status-box p {
+  margin: 0;
+}
+
+.status-box strong {
+  color: #2de2e6;
+}
+
+/* ---- section headings and copy ---- */
+.about-heading {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #f6019d;
+  margin: 50px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #540d6e;
+}
+
+.about-text {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+}
+
+.about-text p {
+  margin: 0 0 1em;
+  text-align: justify;
+}
+
+.about-text strong {
+  color: #f5d7e3;
+}
+
+.about-text em {
+  color: #2de2e6;
+  font-style: normal;
+}
+
+/* ---- logo grids ---- */
+.logo-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 12px;
+}
+
+.logo-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 8px 14px;
+  border: 1px solid #540d6e;
+  background: rgba(84, 13, 110, 0.12);
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.logo-tile:hover {
+  border-color: #2de2e6;
+  background: rgba(45, 226, 230, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Wide wordmarks (AWS, Oracle) need the extra width or `contain` shrinks them
+   to a sliver inside a square box; square marks still cap at 44px tall. */
+.logo-tile img {
+  width: 100%;
+  max-width: 72px;
+  height: 44px;
+  object-fit: contain;
+}
+
+/* Items with no published mark get a monogram in the display face. */
+.logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-family: Powerr;
+  font-size: 22px;
+  line-height: 1;
+  color: #f6019d;
+  border: 1px solid #f6019d;
+}
+
+.logo-name {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.logo-grid-tags {
+  margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-box::before {
+    animation: none;
+  }
+}
+
+/* ---- tag groups ---- */
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-list li {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 4px 12px;
+  border: 1px solid #540d6e;
+}
+
+.tag-list.cyan li {
+  border-color: #2de2e6;
+  color: #2de2e6;
+}
+
+.tag-list.pink li {
+  border-color: #f6019d;
+  color: #f6019d;
+}
+
+.about-text + .tag-list {
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+  #about-intro .about-title-container .title {
+    font-size: 85px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-aside {
+    position: static;
+    order: -1;
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #about-intro {
+    padding: 140px 10px 0;
+  }
+
+  #about-intro .about-title-container .title {
+    font-size: 48px;
+  }
+
+  #about-body {
+    padding: 50px 10px 0;
+  }
+}

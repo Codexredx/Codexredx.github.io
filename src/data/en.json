@@ -1,0 +1,650 @@
+{
+  "locale": "en-za",
+  "menu": {
+    "pages_title": "Pages",
+    "pages": [
+      {
+        "label": "Home",
+        "page": "home"
+      },
+      {
+        "label": "About",
+        "page": "about"
+      },
+      {
+        "label": "Projects",
+        "page": "projects"
+      }
+    ],
+    "contact_title": "Contact",
+    "contact": [
+      {
+        "label": "Email",
+        "value": "conraddutoit2001@gmail.com",
+        "url": "mailto:conraddutoit2001@gmail.com"
+      },
+      {
+        "label": "Phone",
+        "value": "+27 71 263 5123",
+        "url": "tel:+27712635123"
+      },
+      {
+        "label": "Based in",
+        "value": "Pretoria / Heidelberg, South Africa",
+        "url": null
+      }
+    ],
+    "social_title": "Socials",
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/conrad-du-toit-13b1131aa/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/codexredx"
+      }
+    ]
+  },
+  "footer": {
+    "footer_cta": "Open to graduate roles and internships.",
+    "footer_role": "Developer & data scientist.",
+    "footer_pages_title": "Pages",
+    "footer_social_title": "Socials",
+    "footer_contact_title": "Contact",
+    "footer_location": "Pretoria / Heidelberg, South Africa"
+  },
+  "pages": {
+    "home": {
+      "intro_heading": [
+        {
+          "type": "paragraph",
+          "text": "About me",
+          "spans": []
+        }
+      ],
+      "intro_text_1": [
+        {
+          "type": "paragraph",
+          "text": "Currently: BScHons Computer Science at the University of Pretoria. Open to graduate roles and internships in machine learning, data science and software development.",
+          "spans": [
+            {
+              "start": 0,
+              "end": 10,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "I'm a hardworking, curious and dedicated person who thrives on being challenged to grow — strong technical knowledge paired with collaborative instincts, and the project management experience to step into a leadership role when one is needed.",
+          "spans": [
+            {
+              "start": 69,
+              "end": 87,
+              "type": "em"
+            }
+          ]
+        }
+      ],
+      "intro_text_2": [
+        {
+          "type": "paragraph",
+          "text": "I completed my BSc IT at North-West University and am now pursuing Honours in Computer Science at the University of Pretoria, focused on machine learning, data science and data engineering.",
+          "spans": [
+            {
+              "start": 25,
+              "end": 46,
+              "type": "strong"
+            },
+            {
+              "start": 102,
+              "end": 124,
+              "type": "strong"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Day to day that means Python, SQL, Java and JavaScript, React and Node on the front end, and AWS underneath — Lambda, RDS, EC2 and S3. Away from the desk: automobiles, emerging tech, video games, and time with family and friends.",
+          "spans": [
+            {
+              "start": 22,
+              "end": 54,
+              "type": "em"
+            }
+          ]
+        }
+      ],
+      "world_title": [
+        {
+          "type": "paragraph",
+          "text": "THERE'S MORE",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "TO THE STORY.",
+          "spans": []
+        }
+      ],
+      "world_text": "background, skills, interests — the long version.",
+      "world_cta": "More about me.",
+      "offer_warning_title": "Contact Me",
+      "offer_text": [
+        {
+          "type": "paragraph",
+          "text": "Are you looking for a collaborator or a professional who can assist your company or project?",
+          "spans": []
+        }
+      ],
+      "offer_cta": "Let's collaborate",
+      "services_title": [
+        {
+          "type": "paragraph",
+          "text": "Selected",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "projects.",
+          "spans": []
+        }
+      ],
+      "services_appendix": [
+        {
+          "type": "paragraph",
+          "text": "A look at where I have worked and studied. The full list lives on the projects page.",
+          "spans": []
+        }
+      ],
+      "page_title": "Conrad du Toit — Developer & Data Scientist",
+      "page_description": "Conrad du Toit is a BScHons Computer Science student at the University of Pretoria, focused on machine learning, data engineering and software development.",
+      "featured_cta": "View all projects",
+      "more_title_section_1": [
+        {
+          "type": "heading3",
+          "text": "Yellow Clip.",
+          "spans": []
+        },
+        {
+          "type": "heading3",
+          "text": "IT consultant.",
+          "spans": []
+        }
+      ],
+      "more_text_section_1": [
+        {
+          "type": "paragraph",
+          "text": "SCADA/HMI diagram UI development, statistical analysis and AWS DevOps for a financial services team. Data visualisation dashboards built with JointJS, cross-team workflows mapped and optimised, and Lambda functions, RDS instances, VPCs and REST APIs set up on AWS.",
+          "spans": []
+        }
+      ],
+      "more_title_section_2": [
+        {
+          "type": "heading3",
+          "text": "University of Pretoria.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "BHons Computer Science, in progress.",
+          "spans": []
+        }
+      ],
+      "more_list_section_2": [
+        {
+          "type": "list-item",
+          "text": "Machine learning",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Neural networks",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Natural language processing",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Image processing",
+          "spans": []
+        },
+        {
+          "type": "list-item",
+          "text": "Data mining",
+          "spans": []
+        }
+      ],
+      "more_appendix_section_2": [
+        {
+          "type": "paragraph",
+          "text": "*Postgraduate coursework alongside an independent research dissertation.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "**North-West University and the rest of the timeline are on the projects page.",
+          "spans": []
+        }
+      ],
+      "more_title_section_3": [
+        {
+          "type": "paragraph",
+          "text": "More possibilities.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Fewer thoughts.",
+          "spans": []
+        },
+        {
+          "type": "paragraph",
+          "text": "Get in touch.",
+          "spans": []
+        }
+      ],
+      "more_text_section_3": [
+        {
+          "type": "paragraph",
+          "text": "You can hit me up via mail at conraddutoit2001@gmail.com, you can connect with me on LinkedIn or GitHub, or you can call +27 71 263 5123.",
+          "spans": [
+            {
+              "start": 30,
+              "end": 56,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "mailto:conraddutoit2001@gmail.com"
+              }
+            },
+            {
+              "start": 85,
+              "end": 93,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://www.linkedin.com/in/conrad-du-toit-13b1131aa/",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 97,
+              "end": 103,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "https://github.com/codexredx",
+                "target": "_blank"
+              }
+            },
+            {
+              "start": 121,
+              "end": 136,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "tel:+27712635123"
+              }
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Open to graduate roles and internships in ML, data engineering and software development.",
+          "spans": []
+        }
+      ]
+    },
+    "projects": {
+      "projects_title": [
+        {
+          "type": "paragraph",
+          "text": "A glance at my",
+          "spans": []
+        },
+        {
+          "type": "heading2",
+          "text": "Projects",
+          "spans": []
+        }
+      ],
+      "projects_intro": [
+        {
+          "type": "paragraph",
+          "text": "Work experience and academic background that built my technical skillset — from high school through to Honours research.",
+          "spans": []
+        }
+      ],
+      "cards": [
+        {
+          "index": "001",
+          "title": "Yellow Clip",
+          "meta_label": "Role",
+          "meta_value": "IT Consultant · Financial Services",
+          "period": "2023 — 2024",
+          "current": false,
+          "image": "/images/projects/yellow-clip.jpg",
+          "alt": "Yellow Clip — financial services consulting",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "SCADA/HMI diagram UI development, statistical analysis and AWS DevOps for a financial services team. Built data visualisation dashboards for the MLA team with JointJS, mapped and optimised cross-team workflows, and set up Lambda functions, RDS instances, VPCs and REST APIs.",
+              "spans": []
+            }
+          ],
+          "technologies": [
+            "React",
+            "Node.js",
+            "JointJS",
+            "AWS",
+            "Python",
+            "Oracle DB"
+          ],
+          "link": null
+        },
+        {
+          "index": "002",
+          "title": "University of Pretoria",
+          "meta_label": "Programme",
+          "meta_value": "BHons Computer Science",
+          "period": "2026",
+          "current": true,
+          "image": "/images/projects/university-of-pretoria.jpg",
+          "alt": "University of Pretoria — Honours Computer Science",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Completing BHons Computer Science at UP — genetic programming, neural networks, natural language processing, image processing, data mining and software engineering at postgraduate level, alongside an independent research dissertation.",
+              "spans": []
+            }
+          ],
+          "technologies": [
+            "Python",
+            "TensorFlow",
+            "scikit-learn",
+            "NLTK / spaCy",
+            "OpenCV",
+            "Pandas"
+          ],
+          "link": null
+        },
+        {
+          "index": "003",
+          "title": "North-West University",
+          "meta_label": "Programme",
+          "meta_value": "BSc Information Technology",
+          "period": "Completed",
+          "current": false,
+          "image": "/images/projects/north-west-university.jpg",
+          "alt": "North-West University — BSc Information Technology",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Completed BSc IT at NWU Potchefstroom across Java, C#, Python, SQL and more, with final-year modules in Artificial Intelligence, Decision Support Systems, Advanced Databases and Computer Networks. Took a leading role in team projects using Agile across the full development lifecycle.",
+              "spans": []
+            }
+          ],
+          "technologies": [
+            "Java",
+            "C#",
+            "Python",
+            "SQL",
+            "JavaScript",
+            "Agile"
+          ],
+          "link": null
+        },
+        {
+          "index": "004",
+          "title": "Hoër Volkskool Heidelberg",
+          "meta_label": "Qualification",
+          "meta_value": "National Senior Certificate",
+          "period": "Completed",
+          "current": false,
+          "image": "/images/projects/hoer-volkskool-heidelberg.jpg",
+          "alt": "Hoër Volkskool Heidelberg",
+          "description": [
+            {
+              "type": "paragraph",
+              "text": "Achieved the NSC with strong results in Mathematics, Physical Sciences and Engineering Graphics & Design — the analytical foundation for everything that followed.",
+              "spans": []
+            }
+          ],
+          "technologies": [
+            "Mathematics",
+            "Physical Sciences",
+            "Engineering Graphics"
+          ],
+          "link": null
+        }
+      ],
+      "page_title": "Projects — Conrad du Toit",
+      "page_description": "Work experience and academic background — from high school through to Honours research at the University of Pretoria."
+    },
+    "about": {
+      "page_title": "About — Conrad du Toit",
+      "page_description": "Conrad du Toit — BScHons Computer Science at the University of Pretoria. Background, skills, tooling and interests.",
+      "about_title": [
+        {
+          "type": "paragraph",
+          "text": "A bit more",
+          "spans": []
+        },
+        {
+          "type": "heading2",
+          "text": "About me",
+          "spans": []
+        }
+      ],
+      "status": [
+        {
+          "type": "paragraph",
+          "text": "Currently: BScHons Computer Science at the University of Pretoria (2026). Open to graduate roles and internships in ML, data science and software development.",
+          "spans": [
+            {
+              "start": 0,
+              "end": 10,
+              "type": "strong"
+            }
+          ]
+        }
+      ],
+      "photo": {
+        "url": "/images/about/conrad.jpg",
+        "alt": "Conrad du Toit",
+        "width": 466,
+        "height": 592
+      },
+      "background_title": "Work Ethic & Background",
+      "background_text": [
+        {
+          "type": "paragraph",
+          "text": "I'm a hardworking, curious and dedicated individual who thrives on being challenged to grow. I have strong technical knowledge paired with great collaborative abilities, and the project management experience to step into a leadership role when needed.",
+          "spans": [
+            {
+              "start": 73,
+              "end": 91,
+              "type": "em"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "I completed my BSc IT at North-West University and am currently pursuing Honours in Computer Science at the University of Pretoria, with a focus on machine learning, data science and data engineering.",
+          "spans": [
+            {
+              "start": 25,
+              "end": 46,
+              "type": "strong"
+            },
+            {
+              "start": 108,
+              "end": 130,
+              "type": "strong"
+            }
+          ]
+        }
+      ],
+      "tag_groups": [
+        {
+          "title": "Soft Skills",
+          "accent": "pink",
+          "tags": [
+            "Communication",
+            "Problem-Solving",
+            "Team Leadership",
+            "Project Management",
+            "Project Coordination"
+          ]
+        }
+      ],
+      "interests_title": "Interests & Hobbies",
+      "interests_text": [
+        {
+          "type": "paragraph",
+          "text": "A curious mind drawn to science, engineering and technological advancement — especially in the worlds of automobiles and computing. Outside of study I spend time on video games, researching emerging technology, and with family and friends.",
+          "spans": []
+        }
+      ],
+      "interests_tags": [
+        "Automobiles",
+        "Machine Learning",
+        "Data Engineering",
+        "Video Games",
+        "Open Source"
+      ],
+      "languages_title": "Languages",
+      "languages": [
+        "Afrikaans — Native",
+        "English — Advanced",
+        "German — Beginner"
+      ],
+      "logo_groups": [
+        {
+          "title": "Programming Languages",
+          "items": [
+            {
+              "label": "HTML5",
+              "icon": "/images/logos/html5.svg"
+            },
+            {
+              "label": "CSS3",
+              "icon": "/images/logos/css3.svg"
+            },
+            {
+              "label": "Python",
+              "icon": "/images/logos/python.svg"
+            },
+            {
+              "label": "JavaScript",
+              "icon": "/images/logos/javascript.svg"
+            },
+            {
+              "label": "SQL",
+              "icon": "/images/logos/sql.svg"
+            },
+            {
+              "label": "Java",
+              "icon": "/images/logos/java.svg"
+            },
+            {
+              "label": "C#",
+              "icon": "/images/logos/csharp.svg"
+            },
+            {
+              "label": "R",
+              "icon": "/images/logos/r.svg"
+            },
+            {
+              "label": "C++",
+              "icon": "/images/logos/cplusplus.svg"
+            },
+            {
+              "label": "MATLAB",
+              "icon": "/images/logos/matlab.svg"
+            }
+          ]
+        },
+        {
+          "title": "Frameworks & Libraries",
+          "items": [
+            {
+              "label": "React",
+              "icon": "/images/logos/react.svg"
+            },
+            {
+              "label": "React Native",
+              "icon": "/images/logos/react.svg"
+            },
+            {
+              "label": "Node.js",
+              "icon": "/images/logos/nodejs.svg"
+            },
+            {
+              "label": "Spring Boot",
+              "icon": "/images/logos/spring.svg"
+            },
+            {
+              "label": "JointJS",
+              "icon": null
+            },
+            {
+              "label": "LitElement",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "title": "Cloud & Infrastructure",
+          "items": [
+            {
+              "label": "AWS",
+              "icon": "/images/logos/aws.svg"
+            },
+            {
+              "label": "Microsoft Azure",
+              "icon": "/images/logos/azure.svg"
+            },
+            {
+              "label": "Oracle Database",
+              "icon": "/images/logos/oracle.svg"
+            }
+          ],
+          "tags": [
+            "AWS Lambda",
+            "AWS EC2",
+            "AWS S3",
+            "AWS RDS",
+            "VPCs & APIs"
+          ]
+        },
+        {
+          "title": "Tools & Methodologies",
+          "items": [
+            {
+              "label": "Git",
+              "icon": "/images/logos/git.svg"
+            },
+            {
+              "label": "GitHub",
+              "icon": "/images/logos/github.svg"
+            },
+            {
+              "label": "Excel",
+              "icon": null
+            },
+            {
+              "label": "Agile / Scrum",
+              "icon": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

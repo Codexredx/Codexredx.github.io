@@ -1,0 +1,98 @@
+---
+import type { PageKey } from '~/lib/content';
+import { LANG, SITE_ORIGIN, getBundle, canonicalUrl } from '~/lib/content';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
+import Loader from '~/components/Loader.astro';
+
+import '~/styles/global.css';
+import '~/styles/port.css';
+
+export interface Props {
+  page: PageKey;
+  mainClass: string;
+}
+
+const { page, mainClass } = Astro.props;
+const bundle = getBundle();
+const pageData = bundle.pages[page] as { page_title: string; page_description: string };
+
+const title = pageData.page_title;
+const description = pageData.page_description;
+const canonical = canonicalUrl(page);
+
+const jsonLd = {
+  '@context': 'https://schema.org/',
+  '@type': 'Person',
+  name: 'Conrad du Toit',
+  url: SITE_ORIGIN,
+  image: '',
+  sameAs: [
+    'https://www.linkedin.com/in/conrad-du-toit-13b1131aa/',
+    'https://github.com/codexredx',
+    SITE_ORIGIN,
+  ],
+  jobTitle: 'Developer & data scientist',
+  alumniOf: { '@type': 'Organization', name: 'University of Pretoria' },
+};
+---
+
+<!doctype html>
+<html lang={LANG}>
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon.png" />
+    <link rel="mask-icon" color="#0d0221" href="/icons/favicon.png" />
+    <meta name="msapplication-TileColor" content="#0d0221" />
+    <meta name="theme-color" content="#0d0221" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/icons/socialCard.jpg" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/icons/socialCard.jpg" />
+
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="revisit-after" content="7" />
+
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`} />
+  </head>
+
+  <body>
+    <div id="__next">
+      <div class="transition-container">
+        <Header page={page} />
+
+        <main role="main" class={mainClass}>
+          <slot />
+        </main>
+
+        <Footer />
+      </div>
+
+      {/* The intro belongs to the 3D home page; other pages open instantly. */}
+      {page === 'home' && <Loader />}
+    </div>
+
+    <script>
+      import '~/scripts/site';
+    </script>
+  </body>
+</html>

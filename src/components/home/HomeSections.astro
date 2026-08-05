@@ -1,0 +1,130 @@
+---
+import { getBundle, pagePath } from '~/lib/content';
+import { renderRichText } from '~/lib/prismic';
+import CanvasMount from '~/components/CanvasMount.astro';
+import SplitTitle from '~/components/SplitTitle.astro';
+
+const home = getBundle().pages.home;
+---
+
+<section id="home-canvas-container">
+  <div class="container">
+    <CanvasMount scene="home-hero" />
+  </div>
+  <p class="canvas-text">Scroll down</p>
+  <div class="canvas-container-shading"></div>
+</section>
+
+<section id="home-intro">
+  <div class="intro-title-container">
+    <h2 class="title">
+      <SplitTitle field={home.intro_heading} by="word" />
+    </h2>
+  </div>
+
+  <div class="intro-subtitle-container">
+    <div class="subtitle-text" set:html={renderRichText(home.intro_text_1)} />
+    <div class="subtitle-text" set:html={renderRichText(home.intro_text_2)} />
+  </div>
+</section>
+
+<section id="home-world">
+  <div class="world-scroll-container">
+    <div id="scroll-canvas-container">
+      <CanvasMount scene="home-world" />
+    </div>
+    <div class="scroll-text-container">
+      <div class="scroll-text">
+        <h2 class="text-title">
+          <SplitTitle field={home.world_title} />
+        </h2>
+        <div class="text-container">
+          <div class="container-col"></div>
+          <div class="container-col col-title">
+            <p>{home.world_text}</p>
+            <button class="button_button__4jNLs">
+              <a title={home.world_cta} href={pagePath('about')}>{home.world_cta}</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="world-notice-container">
+    <div class="notice-title marquee_container__FvUH_">
+      <div><span>{home.offer_warning_title} / </span></div>
+      <div></div>
+    </div>
+    <div class="notice-text">
+      <div set:html={renderRichText(home.offer_text)} />
+      <button class="button_button__4jNLs">{home.offer_cta}</button>
+    </div>
+  </div>
+</section>
+
+<section id="home-services">
+  <div class="services-section-titles">
+    <h2 class="title">
+      <SplitTitle field={home.services_title} />
+    </h2>
+    <div class="subtitle" set:html={renderRichText(home.services_appendix)} />
+  </div>
+
+  <div id="services-canvas-container">
+    <CanvasMount scene="home-services" />
+  </div>
+</section>
+
+<section id="home-more">
+  <div class="more-container">
+    <div class="more-canvas-container more-canvas-1">
+      <CanvasMount scene="home-more" />
+    </div>
+
+    <div class="more-text" id="more-text-1">
+      <h3 class="title">
+        <SplitTitle field={home.more_title_section_1} />
+      </h3>
+      <div class="text">
+        <div set:html={renderRichText(home.more_text_section_1)} />
+        <div class="symbols">ä</div>
+      </div>
+    </div>
+
+    <div class="more-text" id="more-text-2">
+      <h3 class="title">
+        <SplitTitle field={[home.more_title_section_2[0]]} nested={false} />
+      </h3>
+      <p class="title">
+        <SplitTitle field={[home.more_title_section_2[1]]} nested={false} />
+      </p>
+      <div class="text">
+        <Fragment set:html={renderRichText(home.more_list_section_2)} />
+        <div class="appendix">
+          <div set:html={renderRichText(home.more_appendix_section_2)} />
+          <div class="symbols">P</div>
+          <ul class="decorations">
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="more-canvas-container more-canvas-2"></div>
+    <div class="more-canvas-container more-canvas-3"></div>
+
+    <div class="more-text" id="more-text-3">
+      <h3 class="title">
+        <SplitTitle field={home.more_title_section_3} />
+      </h3>
+      <div class="text sublink-container" set:html={renderRichText(home.more_text_section_3)} />
+    </div>
+  </div>
+
+  <div class="more-cta">
+    <button class="button_button__4jNLs">
+      <a title={home.featured_cta} href={pagePath('projects')}>{home.featured_cta}</a>
+    </button>
+  </div>
+</section>

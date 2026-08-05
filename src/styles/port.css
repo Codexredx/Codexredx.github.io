@@ -1,0 +1,442 @@
+/*
+ * Supplementary rules for this Astro port.
+ *
+ * The original site expressed almost every state through GSAP inline styles,
+ * so the ported stylesheets carry base rules only. Everything here either
+ * backs a state the client scripts drive, or restores behaviour that used to
+ * live inside a React component.
+ */
+
+/* ---- canvas sizing ----
+   The renderer is called with setSize(w, h, false), which leaves the canvas's
+   CSS size alone, so it has to be stretched to its box here or it would
+   display at its raw drawing-buffer size. */
+canvas[data-scene] {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- a canvas that failed to initialise should not leave a dead box ---- */
+[data-scene-failed='true'] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * Loader — the racecar intro.
+ *
+ * The canvas fills the overlay and the HUD sits on top of it. Everything
+ * here is painted before a single asset has downloaded, so the HUD must not
+ * depend on anything the scene loads.
+ * ------------------------------------------------------------------ */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  overflow: hidden;
+  background-color: #0d0221;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+#loader .loader-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* A horizon wash under the sun, and a floor fade so the road melts into the
+   page colour instead of ending on a hard line. */
+#loader .loader-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 55% at 50% 42%, rgba(246, 1, 157, 0.16), transparent 65%),
+    linear-gradient(0deg, rgba(13, 2, 33, 0.9) 2%, transparent 28%);
+}
+
+#loader .loader-hud {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: 0 25px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+}
+
+#loader .loader-title {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.5em;
+  color: #2de2e6;
+  text-shadow: 0 0 12px rgba(45, 226, 230, 0.65);
+}
+
+#loader .loader-cursor {
+  color: #f6019d;
+  animation: loader-blink 1s step-end infinite;
+}
+
+@keyframes loader-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#loader .loader-gauge {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: min(100%, 460px);
+}
+
+#loader .loader-bar {
+  position: relative;
+  flex: 1 1 auto;
+  height: 6px;
+  border: 1px solid rgba(245, 215, 227, 0.35);
+  background: rgba(84, 13, 110, 0.35);
+}
+
+#loader .loader-fill {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #540d6e, #f6019d 60%, #2de2e6);
+  box-shadow: 0 0 12px rgba(246, 1, 157, 0.7);
+  transition: width 0.12s linear;
+}
+
+/* The bright head of the bar, riding the fill like a headlight. */
+#loader .loader-fill::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -1px;
+  width: 2px;
+  height: 12px;
+  background: #2de2e6;
+  box-shadow: 0 0 10px #2de2e6, 0 0 22px #2de2e6;
+}
+
+#loader .loader-readout {
+  margin: 0;
+  min-width: 4.5em;
+  text-align: right;
+  font-size: 17px;
+  color: #f5d7e3;
+}
+
+#loader .loader-readout .loader-unit {
+  color: #f6019d;
+  margin-left: 0.15em;
+}
+
+#loader .loader-decorations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 5px;
+}
+
+#loader .loader-decorations li {
+  width: 26px;
+  height: 3px;
+  background-color: rgba(245, 215, 227, 0.5);
+}
+
+#loader .loader-decorations li:nth-child(2) { width: 18px; }
+#loader .loader-decorations li:nth-child(3) { width: 10px; }
+#loader .loader-decorations li:nth-child(4) { width: 5px; }
+
+@media screen and (max-width: 720px) {
+  #loader .loader-hud {
+    padding: 0 10px 28px;
+  }
+
+  #loader .loader-title {
+    font-size: 12px;
+    letter-spacing: 0.35em;
+  }
+
+  #loader .loader-readout {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #loader .loader-cursor {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Header menu — a plain hamburger dropdown.
+ * ------------------------------------------------------------------ */
+header .header-menu {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+  padding: 10px 20px;
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #f5d7e3;
+  background: transparent;
+  border: 1px solid #f5d7e3;
+  border-radius: 1px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.nav-toggle:hover,
+.nav-toggle[aria-expanded='true'] {
+  border-color: #2de2e6;
+  color: #2de2e6;
+}
+
+.nav-toggle-bars {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 16px;
+  height: 12px;
+}
+
+.nav-toggle-bars span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: currentcolor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:first-child {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:last-child {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* Anchored to the toggle rather than sitting in the header's flex row: in
+   flow it widened .header-menu, which squeezed the title into a wrapped
+   column on narrow screens. */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  pointer-events: auto;
+  width: 280px;
+  max-width: calc(100vw - 20px);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 0;
+  background-color: #0d0221;
+  border: 1px solid #f5d7e3;
+  border-radius: 1px;
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+}
+
+.nav-dropdown[hidden] {
+  display: none;
+}
+
+.nav-dropdown .nav-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-dropdown .nav-group + .nav-group {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #540d6e;
+}
+
+.nav-dropdown .nav-group-title {
+  font-size: 12px;
+  color: #f6019d;
+  padding: 0 20px 8px;
+}
+
+.nav-dropdown .nav-group li a,
+.nav-dropdown .nav-group li .nav-static {
+  display: block;
+  font-size: 15px;
+  padding: 6px 20px;
+  color: #f5d7e3;
+  overflow-wrap: anywhere;
+}
+
+.nav-dropdown .nav-group li a:hover,
+.nav-dropdown .nav-group li a[aria-current='page'] {
+  background-color: #f5d7e3;
+  color: #0d0221;
+}
+
+.nav-dropdown .nav-group li .nav-static {
+  color: #a892a0;
+}
+
+@media screen and (max-width: 720px) {
+  .nav-dropdown {
+    width: calc(100vw - 20px);
+  }
+
+  /* The title must never be squeezed into a wrapped column by the toggle. */
+  header .header-navigator .navigator-title .title,
+  header .header-navigator .navigator-title .subtitle {
+    white-space: nowrap;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Home — the world section's closing link.
+ *
+ * The canvas is absolutely stacked under the text, so the text block gets a
+ * scrim: the earth passes behind it as the section is pinned and scrubbed.
+ * ------------------------------------------------------------------ */
+#home-world .world-scroll-container .scroll-text-container::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 65%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(0deg, #0d0221 15%, rgba(13, 2, 33, 0.85) 55%, rgba(13, 2, 33, 0));
+}
+
+/* ---- home: the link out to the full projects page ---- */
+#home-more .more-cta {
+  display: flex;
+  justify-content: center;
+  padding: 75px 25px 100px;
+}
+
+@media screen and (max-width: 720px) {
+  #home-more .more-cta {
+    padding: 50px 10px 75px;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Footer — a plain four-column block.
+ * ------------------------------------------------------------------ */
+footer {
+  padding-top: 100px;
+}
+
+footer .footer-simple {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 25px;
+}
+
+footer .footer-simple .footer-brand {
+  flex: 2 1 280px;
+}
+
+footer .footer-simple .footer-brand .brand-name {
+  font-family: Powerr;
+  text-transform: uppercase;
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+footer .footer-simple .footer-brand .brand-role,
+footer .footer-simple .footer-brand .brand-note {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  margin: 10px 0 0;
+  max-width: 320px;
+}
+
+footer .footer-simple .footer-brand .brand-role {
+  color: #2de2e6;
+}
+
+footer .footer-simple .footer-col {
+  flex: 1 1 180px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: VCR OSD Mono, monospace;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+footer .footer-simple .footer-col .col-title {
+  font-size: 12px;
+  color: #f6019d;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #540d6e;
+}
+
+footer .footer-simple .footer-col li {
+  margin: 0;
+  padding: 4px 0;
+  overflow-wrap: anywhere;
+}
+
+footer .footer-simple .footer-col li a:hover {
+  color: #2de2e6;
+}
+
+footer .footer-copyright {
+  position: relative;
+  z-index: 1;
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 75px auto 0;
+  padding-bottom: 25px;
+}
+
+@media screen and (max-width: 720px) {
+  footer {
+    padding-top: 75px;
+  }
+
+  footer .footer-simple {
+    gap: 35px;
+    padding-inline: 10px;
+  }
+
+  footer .footer-simple .footer-brand .brand-name {
+    font-size: 27px;
+  }
+}

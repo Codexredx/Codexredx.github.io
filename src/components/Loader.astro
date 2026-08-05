@@ -1,0 +1,24 @@
+---
+import CanvasMount from './CanvasMount.astro';
+---
+
+<section id="loader">
+  <div class="loader-stage">
+    <CanvasMount scene="loader" />
+  </div>
+
+  <div class="loader-hud">
+    <p class="loader-title">Loading<span class="loader-cursor">_</span></p>
+
+    <div class="loader-gauge">
+      <div class="loader-bar"><span class="loader-fill"></span></div>
+      <p class="loader-readout">
+        <span class="loader-pct">0</span><span class="loader-unit">%</span>
+      </p>
+    </div>
+
+    <ul class="loader-decorations">
+      <li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+</section>

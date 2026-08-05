@@ -1,0 +1,90 @@
+---
+import type { PageKey } from '~/lib/content';
+import { getBundle, pagePath } from '~/lib/content';
+
+export interface Props {
+  page: PageKey;
+}
+
+const { page } = Astro.props;
+const menu = getBundle().menu;
+
+const NAME = 'Conrad du Toit';
+
+const pages = menu.pages.map((p) => ({
+  label: p.label,
+  key: p.page as PageKey,
+  href: pagePath(p.page as PageKey),
+}));
+---
+
+<header>
+  <section class="header-navigator">
+    <div class="navigator-title">
+      <h1 class="title">
+        <a title={NAME} href={pagePath('home')}>
+          {NAME.split('').map((ch) => <span>{ch === ' ' ? ' ' : ch}</span>)}
+        </a>
+      </h1>
+      <span class="title-decoration stripes"></span>
+      <p class="subtitle">Developer &amp; data scientist.</p>
+    </div>
+  </section>
+
+  <section class="header-menu">
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="site-menu">
+      <span class="nav-toggle-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span class="nav-toggle-label">Menu</span>
+    </button>
+
+    <nav id="site-menu" class="nav-dropdown" hidden>
+      <ul class="nav-group">
+        <li class="nav-group-title">{menu.pages_title}</li>
+        {
+          pages.map((p) => (
+            <li>
+              <a href={p.href} aria-current={p.key === page ? 'page' : undefined}>
+                {p.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <ul class="nav-group">
+        <li class="nav-group-title">{menu.contact_title}</li>
+        {
+          menu.contact.map((c) => (
+            <li>
+              {c.url ? (
+                <a href={c.url}>{c.value}</a>
+              ) : (
+                <span class="nav-static">{c.value}</span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+
+      <ul class="nav-group">
+        <li class="nav-group-title">{menu.social_title}</li>
+        {
+          menu.socials.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noreferrer">
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </section>
+</header>
