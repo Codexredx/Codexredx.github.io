@@ -17,7 +17,7 @@ export interface Props {
 const { card, total, backLabel, prev, next } = Astro.props;
 const d = card.detail;
 
-// Heidelberg has no breakdown sections at all - the grid must not reserve
+// Heidelberg has no breakdown sections at all — the grid must not reserve
 // space (and padding) for a column layout that renders nothing.
 const hasColumns = Boolean(d.modules || d.milestones || d.tech_groups || d.notes || d.tools || d.research);
 

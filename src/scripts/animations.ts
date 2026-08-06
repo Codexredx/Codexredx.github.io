@@ -67,7 +67,7 @@ export function primeAnimations() {
  * Safety net: nothing this file hides may stay hidden.
  *
  * The check is deliberately narrow. Only text the visitor can actually see is
- * rescued, and only while its timeline has not run - forcing an off-screen
+ * rescued, and only while its timeline has not run — forcing an off-screen
  * element to its final state leaves its ScrollTrigger free to play the reveal
  * from the top later, which reads as the text jumping in a second time. A
  * rescue therefore also takes the timeline and its trigger down with it.

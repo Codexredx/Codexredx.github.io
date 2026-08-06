@@ -26,7 +26,7 @@ import { onProgress, onFinish } from '../loader-state';
 export { COLORS };
 
 /* ------------------------------------------------------------------ *
- * Home hero - #home-canvas-container
+ * Home hero — #home-canvas-container
  *   camera: fov 75, far 100, position [0, 0.15, 0.95]
  *   fog:    near 0.5, far 2.5, colour 0x2a0637
  * ------------------------------------------------------------------ */
@@ -210,7 +210,7 @@ export const homeHero: SceneModule = (() => {
 })();
 
 /* ------------------------------------------------------------------ *
- * Home world - #scroll-canvas-container
+ * Home world — #scroll-canvas-container
  *   camera: near 0.01, far 15 (default fov 40, position [0,0,-4])
  *   an earth/moon pair plus a wireframe icosahedron, scroll-pinned
  * ------------------------------------------------------------------ */
@@ -343,7 +343,7 @@ export const homeWorld: SceneModule = (() => {
 })();
 
 /* ------------------------------------------------------------------ *
- * Home services - #services-canvas-container
+ * Home services — #services-canvas-container
  *   camera: fov 35, near 0.001, far 10, position [0, 0, 5.55]
  *   a staggered stack of wireframe TVs playing the announcement video
  * ------------------------------------------------------------------ */
@@ -434,7 +434,7 @@ export const homeServices: SceneModule = (() => {
 })();
 
 /* ------------------------------------------------------------------ *
- * Home more - .more-canvas-1
+ * Home more — .more-canvas-1
  *   camera: fov 18, near 0.1, far 2, position [0, 0, 0]
  *   a spinning F1 wheel lit by a pink and a cyan point light
  * ------------------------------------------------------------------ */
@@ -580,7 +580,7 @@ export const homeMore: SceneModule = (() => {
 })();
 
 /* ------------------------------------------------------------------ *
- * Loader - a low-poly racecar running a neon grid road toward the sun.
+ * Loader — a low-poly racecar running a neon grid road toward the sun.
  *
  * The road, the centre line and the underglow are drawn to canvases at
  * runtime rather than shipped as images: the loader has to be on screen

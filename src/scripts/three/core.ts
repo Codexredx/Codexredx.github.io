@@ -17,9 +17,9 @@ export { loadTracker };
  * Shared plumbing for every canvas on the site.
  *
  * This mirrors the original's two shared pieces:
- *   CanvasWrapper - a react-three-fiber <Canvas> with `antialias: false`, an
+ *   CanvasWrapper — a react-three-fiber <Canvas> with `antialias: false`, an
  *                   adaptive dpr, and per-scene camera settings.
- *   Effects       - an EffectComposer carrying Scanline + ChromaticAberration.
+ *   Effects       — an EffectComposer carrying Scanline + ChromaticAberration.
  */
 
 export type CameraConfig = {
@@ -168,7 +168,7 @@ export function mountScene(canvas: HTMLCanvasElement, mod: SceneModule): () => v
   camera.position.set(...(cam.position ?? [0, 0, -4]));
 
   // react-three-fiber points its default camera at the origin. Several scenes
-  // rely on this - the world camera sits at [0, 0, -4] and would otherwise face
+  // rely on this — the world camera sits at [0, 0, -4] and would otherwise face
   // away from the scene entirely. Skip it at the origin, where lookAt is undefined.
   if (camera.position.lengthSq() > 0) camera.lookAt(0, 0, 0);
 

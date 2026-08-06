@@ -24,8 +24,13 @@
         "url": "mailto:conraddutoit2001@gmail.com"
       },
       {
+        "label": "Phone",
+        "value": "+27 71 263 5123",
+        "url": "tel:+27712635123"
+      },
+      {
         "label": "Based in",
-        "value": "Randburg, South Africa",
+        "value": "Pretoria / Heidelberg, South Africa",
         "url": null
       }
     ],
@@ -47,7 +52,7 @@
     "footer_pages_title": "Pages",
     "footer_social_title": "Socials",
     "footer_contact_title": "Contact",
-    "footer_location": "Randburg, South Africa"
+    "footer_location": "Pretoria / Heidelberg, South Africa"
   },
   "pages": {
     "home": {
@@ -72,7 +77,7 @@
         },
         {
           "type": "paragraph",
-          "text": "I'm a hardworking, curious and dedicated person who thrives on being challenged to grow - strong technical knowledge paired with collaborative instincts, and the project management experience to step into a leadership role when one is needed.",
+          "text": "I'm a hardworking, curious and dedicated person who thrives on being challenged to grow — strong technical knowledge paired with collaborative instincts, and the project management experience to step into a leadership role when one is needed.",
           "spans": [
             {
               "start": 69,
@@ -101,7 +106,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Day to day that means Python, SQL, Java and JavaScript, React and Node on the front end, and AWS underneath - Lambda, RDS, EC2 and S3. Away from the desk: automobiles, emerging tech, video games, and time with family and friends.",
+          "text": "Day to day that means Python, SQL, Java and JavaScript, React and Node on the front end, and AWS underneath — Lambda, RDS, EC2 and S3. Away from the desk: automobiles, emerging tech, video games, and time with family and friends.",
           "spans": [
             {
               "start": 22,
@@ -123,7 +128,7 @@
           "spans": []
         }
       ],
-      "world_text": "background, skills, interests - the long version.",
+      "world_text": "background, skills, interests — the long version.",
       "world_cta": "More about me.",
       "offer_warning_title": "Contact Me",
       "offer_text": [
@@ -153,7 +158,7 @@
           "spans": []
         }
       ],
-      "page_title": "Conrad du Toit - Developer & Data Scientist",
+      "page_title": "Conrad du Toit — Developer & Data Scientist",
       "page_description": "Conrad du Toit is a BScHons Computer Science student at the University of Pretoria, focused on machine learning, data engineering and software development.",
       "featured_cta": "View all projects",
       "more_title_section_1": [
@@ -246,7 +251,7 @@
       "more_text_section_3": [
         {
           "type": "paragraph",
-          "text": "You can contact me via mail at conraddutoit2001@gmail.com, you can connect with me on LinkedIn or GitHub",
+          "text": "You can hit me up via mail at conraddutoit2001@gmail.com, you can connect with me on LinkedIn or GitHub, or you can call +27 71 263 5123.",
           "spans": [
             {
               "start": 30,
@@ -276,6 +281,15 @@
                 "url": "https://github.com/codexredx",
                 "target": "_blank"
               }
+            },
+            {
+              "start": 121,
+              "end": 136,
+              "type": "hyperlink",
+              "data": {
+                "link_type": "Web",
+                "url": "tel:+27712635123"
+              }
             }
           ]
         },
@@ -302,7 +316,7 @@
       "projects_intro": [
         {
           "type": "paragraph",
-          "text": "Work experience and academic background that built my technical skillset - from high school through to Honours research.",
+          "text": "Work experience and academic background that built my technical skillset — from high school through to Honours research.",
           "spans": []
         }
       ],
@@ -313,10 +327,10 @@
           "title": "Yellow Clip",
           "meta_label": "Role",
           "meta_value": "IT Consultant · Financial Services",
-          "period": "2023 - 2024",
+          "period": "2023 — 2024",
           "current": false,
           "image": "/images/projects/yellow-clip.jpg",
-          "alt": "Yellow Clip - financial services consulting",
+          "alt": "Yellow Clip — financial services consulting",
           "description": [
             {
               "type": "paragraph",
@@ -334,13 +348,13 @@
           ],
           "link": null,
           "detail": {
-            "page_title": "Yellow Clip - Conrad du Toit",
-            "page_description": "IT consulting at Yellow Clip's financial services branch - SCADA/HMI diagram UI development, statistical analysis and AWS DevOps.",
+            "page_title": "Yellow Clip — Conrad du Toit",
+            "page_description": "IT consulting at Yellow Clip's financial services branch — SCADA/HMI diagram UI development, statistical analysis and AWS DevOps.",
             "subtitle": "IT Consultant / Financial Services / Part-time",
             "summary": [
               {
                 "type": "paragraph",
-                "text": "Worked part-time as an IT consultant at Yellow Clip's financial services branch, contributing to data visualisation, SCADA/HMI diagram development and statistical analysis for the MLA team. Also took on DevOps responsibilities on AWS - designing and deploying cloud infrastructure to support the team's data pipelines and web applications.",
+                "text": "Worked part-time as an IT consultant at Yellow Clip's financial services branch, contributing to data visualisation, SCADA/HMI diagram development and statistical analysis for the MLA team. Also took on DevOps responsibilities on AWS — designing and deploying cloud infrastructure to support the team's data pipelines and web applications.",
                 "spans": []
               }
             ],
@@ -452,11 +466,11 @@
           "period": "2026",
           "current": true,
           "image": "/images/projects/university-of-pretoria.jpg",
-          "alt": "University of Pretoria - Honours Computer Science",
+          "alt": "University of Pretoria — Honours Computer Science",
           "description": [
             {
               "type": "paragraph",
-              "text": "Completing BHons Computer Science at UP - genetic programming, neural networks, natural language processing, image processing, data mining and software engineering at postgraduate level, alongside an independent research dissertation.",
+              "text": "Completing BHons Computer Science at UP — genetic programming, neural networks, natural language processing, image processing, data mining and software engineering at postgraduate level, alongside an independent research dissertation.",
               "spans": []
             }
           ],
@@ -464,14 +478,15 @@
             "Python",
             "TensorFlow",
             "scikit-learn",
-            "Numpy",
+            "NLTK / spaCy",
+            "OpenCV",
             "Pandas"
           ],
           "link": null,
           "detail": {
-            "page_title": "University of Pretoria - Conrad du Toit",
-            "page_description": "BSc Honours Computer Science at the University of Pretoria - AI, neural networks, NLP, data mining and image processing, with an independent research dissertation.",
-            "subtitle": "BSc Honours Computer Science at University of Pretoria",
+            "page_title": "University of Pretoria — Conrad du Toit",
+            "page_description": "BHons Computer Science at the University of Pretoria — AI, neural networks, NLP, data mining and image processing, with an independent research dissertation.",
+            "subtitle": "BHons Computer Science / University of Pretoria",
             "summary": [
               {
                 "type": "paragraph",
@@ -488,22 +503,22 @@
               "title": "Year Milestones",
               "items": [
                 {
-                  "label": "Q1 - Jan / Mar 2025",
+                  "label": "Q1 — Jan / Mar 2025",
                   "done": true,
                   "text": "Programme commencement, orientation and initial literature review."
                 },
                 {
-                  "label": "Q2 - Apr / Jun 2025",
+                  "label": "Q2 — Apr / Jun 2025",
                   "done": true,
                   "text": "Research proposal submission and first-semester coursework."
                 },
                 {
-                  "label": "Q3 - Jul / Sep 2025",
+                  "label": "Q3 — Jul / Sep 2025",
                   "done": false,
                   "text": "Experiments, data collection and dissertation chapter drafts."
                 },
                 {
-                  "label": "Q4 - Oct / Nov 2025",
+                  "label": "Q4 — Oct / Nov 2025",
                   "done": false,
                   "text": "Final submission, presentation and oral examination."
                 }
@@ -516,17 +531,17 @@
                 {
                   "title": "Research Methodology & Project",
                   "subtitle": null,
-                  "text": "A two-part compulsory module. The first semester covers research best practices: designing rigorous studies, conducting literature reviews and structuring academic writing. The project component then applies these methods to produce an original technical research report - which can be a new piece of software, a model, an algorithm, or a theoretical contribution - in one of the department's active research areas."
+                  "text": "A two-part compulsory module. The first semester covers research best practices: designing rigorous studies, conducting literature reviews and structuring academic writing. The project component then applies these methods to produce an original technical research report — which can be a new piece of software, a model, an algorithm, or a theoretical contribution — in one of the department's active research areas."
                 },
                 {
                   "title": "Artificial Intelligence I",
                   "subtitle": "Genetic Programming & Grammatical Evolution",
-                  "text": "Focuses on Evolutionary Computation and Swarm Intelligence as two Computational Intelligence paradigms. Covers genetic algorithms, genetic programming, grammatical evolution, evolutionary strategies, differential evolution and co-evolution - all modelling Darwinian evolution. Also explores swarm-based optimisers such as ant colony optimisation and particle swarm optimisation, applied to multi-objective and dynamic complex problem spaces."
+                  "text": "Focuses on Evolutionary Computation and Swarm Intelligence as two Computational Intelligence paradigms. Covers genetic algorithms, genetic programming, grammatical evolution, evolutionary strategies, differential evolution and co-evolution — all modelling Darwinian evolution. Also explores swarm-based optimisers such as ant colony optimisation and particle swarm optimisation, applied to multi-objective and dynamic complex problem spaces."
                 },
                 {
                   "title": "Artificial Intelligence II",
                   "subtitle": "Neural Networks",
-                  "text": "Covers three Computational Intelligence paradigms. Artificial Neural Networks are studied in depth - including supervised, unsupervised and reinforcement learning, and the factors that govern network performance. Artificial Immune Systems model the human biological immune system (negative selection, clonal selection, network and danger theory). Fuzzy Systems introduce reasoning under uncertainty using fuzzy logic and rough sets."
+                  "text": "Covers three Computational Intelligence paradigms. Artificial Neural Networks are studied in depth — including supervised, unsupervised and reinforcement learning, and the factors that govern network performance. Artificial Immune Systems model the human biological immune system (negative selection, clonal selection, network and danger theory). Fuzzy Systems introduce reasoning under uncertainty using fuzzy logic and rough sets."
                 },
                 {
                   "title": "Software Engineering I",
@@ -541,12 +556,12 @@
                 {
                   "title": "Natural Language Processing",
                   "subtitle": null,
-                  "text": "Introduces students to data and information analytics through mining both structured and unstructured text data. Students apply generative AI techniques to extract insights from data and use novel methods to collect and analyse personal and public web postings through big data case studies. The module develops knowledge of core NLP algorithms - covering information extraction, machine translation, text summarisation and question answering - and the underlying algorithmic and linguistic foundations needed to work with real-world textual data."
+                  "text": "Introduces students to data and information analytics through mining both structured and unstructured text data. Students apply generative AI techniques to extract insights from data and use novel methods to collect and analyse personal and public web postings through big data case studies. The module develops knowledge of core NLP algorithms — covering information extraction, machine translation, text summarisation and question answering — and the underlying algorithmic and linguistic foundations needed to work with real-world textual data."
                 },
                 {
                   "title": "Image Processing",
                   "subtitle": null,
-                  "text": "A special-topics module in which the Department of Computer Science presents current and advanced research themes. In the current year the topic is digital image processing: covering the mathematical and algorithmic foundations of acquiring, transforming and analysing images. Topics include spatial-domain and frequency-domain filtering (Fourier transforms), edge detection, morphological operations, image segmentation and feature extraction - the core building blocks for computer vision systems applied in fields from medical imaging to autonomous vehicles."
+                  "text": "A special-topics module in which the Department of Computer Science presents current and advanced research themes. In the current year the topic is digital image processing: covering the mathematical and algorithmic foundations of acquiring, transforming and analysing images. Topics include spatial-domain and frequency-domain filtering (Fourier transforms), edge detection, morphological operations, image segmentation and feature extraction — the core building blocks for computer vision systems applied in fields from medical imaging to autonomous vehicles."
                 }
               ]
             },
@@ -557,6 +572,8 @@
                 "Python",
                 "TensorFlow",
                 "scikit-learn",
+                "NLTK / spaCy",
+                "OpenCV",
                 "Pandas",
                 "NumPy",
                 "Jupyter",
@@ -566,9 +583,9 @@
             },
             "research": {
               "title": "Research Focus",
-              "heading": "Dissertation - How good are LLMs in providing formative feedback and automated scoring for Regular Expression pedagogy.",
+              "heading": "Dissertation — How good are LLMs in providing formative feedback and automated scoring for Regular Expression pedagogy.",
               "text": [
-                "Teaching tools that check students' regular expression answers can tell them if they're wrong, but not why - and that explanation gap is where learning breaks down. This research investigates whether large language models (GPT-4o and Gemini) can fill that gap by generating accurate scores and genuinely useful, natural-language feedback on student submissions. The study tests three prompting strategies - zero-shot, few-shot, and chain-of-thought - to identify which approach produces the most reliable grading and the most actionable feedback, giving educators concrete guidance on how to actually deploy these tools in a classroom."
+                "Teaching tools that check students' regular expression answers can tell them if they're wrong, but not why — and that explanation gap is where learning breaks down. This research investigates whether large language models (GPT-4o and Gemini) can fill that gap by generating accurate scores and genuinely useful, natural-language feedback on student submissions. The study tests three prompting strategies — zero-shot, few-shot, and chain-of-thought — to identify which approach produces the most reliable grading and the most actionable feedback, giving educators concrete guidance on how to actually deploy these tools in a classroom."
               ],
               "footnote_label": "Supervisor",
               "footnote": "Dr Okuboyejo, Department of Computer Science, University of Pretoria."
@@ -585,7 +602,7 @@
           "period": "Completed",
           "current": false,
           "image": "/images/projects/north-west-university.jpg",
-          "alt": "North-West University - BSc Information Technology",
+          "alt": "North-West University — BSc Information Technology",
           "description": [
             {
               "type": "paragraph",
@@ -603,8 +620,8 @@
           ],
           "link": null,
           "detail": {
-            "page_title": "North-West University - Conrad du Toit",
-            "page_description": "BSc Information Technology at NWU Potchefstroom - Java, C#, Python, SQL and final-year modules in AI, decision support systems, advanced databases and networks.",
+            "page_title": "North-West University — Conrad du Toit",
+            "page_description": "BSc Information Technology at NWU Potchefstroom — Java, C#, Python, SQL and final-year modules in AI, decision support systems, advanced databases and networks.",
             "subtitle": "BSc Information Technology / NWU Potchefstroom",
             "summary": [
               {
@@ -684,7 +701,7 @@
               "items": [
                 {
                   "label": "Object-Oriented",
-                  "text": "Java was the primary language for object-oriented programming - covering inheritance, polymorphism, design patterns and data structures. C# was used for GUI development and Windows application projects.",
+                  "text": "Java was the primary language for object-oriented programming — covering inheritance, polymorphism, design patterns and data structures. C# was used for GUI development and Windows application projects.",
                   "tags": [
                     "Java",
                     "C#"
@@ -692,7 +709,7 @@
                 },
                 {
                   "label": "Web & Databases",
-                  "text": "HTML, CSS and JavaScript were used to build interactive webpages and front-end interfaces. SQL drove all database work - from schema design through to stored procedures and complex joins.",
+                  "text": "HTML, CSS and JavaScript were used to build interactive webpages and front-end interfaces. SQL drove all database work — from schema design through to stored procedures and complex joins.",
                   "tags": [
                     "HTML",
                     "CSS",
@@ -757,7 +774,7 @@
           "description": [
             {
               "type": "paragraph",
-                "text": "Achieved the NSC with strong results in Mathematics, Physical Sciences and Engineering Graphics & Design - the analytical foundation for everything that followed.",
+              "text": "Achieved the NSC with strong results in Mathematics, Physical Sciences and Engineering Graphics & Design — the analytical foundation for everything that followed.",
               "spans": []
             }
           ],
@@ -768,8 +785,8 @@
           ],
           "link": null,
           "detail": {
-            "page_title": "Hoër Volkskool Heidelberg - Conrad du Toit",
-            "page_description": "National Senior Certificate at Hoër Volkskool Heidelberg - Mathematics, Physical Sciences and Engineering Graphics and Design.",
+            "page_title": "Hoër Volkskool Heidelberg — Conrad du Toit",
+            "page_description": "National Senior Certificate at Hoër Volkskool Heidelberg — Mathematics, Physical Sciences and Engineering Graphics and Design.",
             "subtitle": "National Senior Certificate",
             "summary": [
               {
@@ -818,14 +835,14 @@
           }
         }
       ],
-      "page_title": "Projects - Conrad du Toit",
-      "page_description": "Work experience and academic background - from high school through to Honours research at the University of Pretoria.",
+      "page_title": "Projects — Conrad du Toit",
+      "page_description": "Work experience and academic background — from high school through to Honours research at the University of Pretoria.",
       "discover_label": "Discover",
       "back_label": "All projects"
     },
     "about": {
-      "page_title": "About - Conrad du Toit",
-      "page_description": "Conrad du Toit - BScHons Computer Science at the University of Pretoria. Background, skills, tooling and interests.",
+      "page_title": "About — Conrad du Toit",
+      "page_description": "Conrad du Toit — BScHons Computer Science at the University of Pretoria. Background, skills, tooling and interests.",
       "about_title": [
         {
           "type": "paragraph",
@@ -904,22 +921,22 @@
       "interests_text": [
         {
           "type": "paragraph",
-          "text": "A curious mind drawn to science, engineering and technological advancement - especially in the worlds of automobiles and computing. Outside of study I spend time on video games, researching emerging technology, and with family and friends.",
+          "text": "A curious mind drawn to science, engineering and technological advancement — especially in the worlds of automobiles and computing. Outside of study I spend time on video games, researching emerging technology, and with family and friends.",
           "spans": []
         }
       ],
       "interests_tags": [
         "Automobiles",
         "Machine Learning",
-        "Data Science",
+        "Data Engineering",
         "Video Games",
         "Open Source"
       ],
       "languages_title": "Languages",
       "languages": [
-        "Afrikaans - Native",
-        "English - Advanced",
-        "German - Beginner"
+        "Afrikaans — Native",
+        "English — Advanced",
+        "German — Beginner"
       ],
       "logo_groups": [
         {

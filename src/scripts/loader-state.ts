@@ -28,7 +28,7 @@ export function onProgress(fn: ProgressFn): () => void {
   return () => progressListeners.delete(fn);
 }
 
-/** Fired once the bar reaches 100 - the scene uses it to drive the car off. */
+/** Fired once the bar reaches 100 — the scene uses it to drive the car off. */
 export function markFinished() {
   if (finished) return;
   finished = true;
