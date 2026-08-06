@@ -23,7 +23,7 @@ canvas[data-scene] {
 }
 
 /* ------------------------------------------------------------------ *
- * Loader — the racecar intro.
+ * Loader - the racecar intro.
  *
  * The canvas fills the overlay and the HUD sits on top of it. Everything
  * here is painted before a single asset has downloaded, so the HUD must not
@@ -179,7 +179,7 @@ canvas[data-scene] {
 }
 
 /* ------------------------------------------------------------------ *
- * Header menu — a plain hamburger dropdown.
+ * Header menu - a plain hamburger dropdown.
  * ------------------------------------------------------------------ */
 header .header-menu {
   position: relative;
@@ -317,7 +317,7 @@ header .header-menu {
 }
 
 /* ------------------------------------------------------------------ *
- * Home — the world section's closing link.
+ * Home - the world section's closing link.
  *
  * The canvas is absolutely stacked under the text, so the text block gets a
  * scrim: the earth passes behind it as the section is pinned and scrubbed.
@@ -346,7 +346,7 @@ header .header-menu {
 }
 
 /* ------------------------------------------------------------------ *
- * Footer — a plain four-column block.
+ * Footer - a plain four-column block.
  * ------------------------------------------------------------------ */
 footer {
   padding-top: 100px;

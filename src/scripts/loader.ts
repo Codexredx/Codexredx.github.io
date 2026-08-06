@@ -6,7 +6,7 @@ import { setProgress, markFinished } from './loader-state';
  * Drives the intro overlay: a neon progress gauge over the racecar scene.
  *
  * The bar takes the larger of real asset progress and a time floor. The floor
- * has to be able to reach 100 on its own — a page whose assets never register
+ * has to be able to reach 100 on its own - a page whose assets never register
  * with the tracker would otherwise sit just short of the finish line until the
  * hard ceiling at the bottom of this file fires.
  */
