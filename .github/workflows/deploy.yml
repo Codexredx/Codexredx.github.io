@@ -33,20 +33,10 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: List build output
-        run: |
-          echo "Dist contents:" && ls -la ./dist || true
-          echo "Dist size:" && du -sh ./dist || true
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-
-      - name: Pause to allow artifact indexing
-        run: |
-          echo "Waiting 6s for artifact indexing..."
-          sleep 6
 
   deploy:
     needs: build
@@ -55,29 +45,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Cancel in-progress Pages deployments
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "Checking for in-progress Pages deployments..."
-          response=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/deployments")
-          printf '%s' "$response" > /tmp/pages_deploy_resp.json
-          # If response is valid JSON, extract any in-progress/queued/deploying deployments
-          if jq -e . /tmp/pages_deploy_resp.json >/dev/null 2>&1; then
-            ids=$(jq -r 'try (if type=="array" then (.[]? | select(type=="object") | select(.status=="in_progress" or .status=="queued" or .status=="deploying") | .id) elif has("deployments") then (.deployments[]? | select(type=="object") | select(.status=="in_progress" or .status=="queued" or .status=="deploying") | .id) else empty end) catch empty' /tmp/pages_deploy_resp.json || true)
-            if [ -z "$ids" ]; then
-              echo "No in-progress Pages deployments found."
-            else
-              for id in $ids; do
-                echo "Cancelling Pages deployment $id"
-                curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/deployments/$id/cancel" || true
-              done
-            fi
-          else
-            echo "Pages deployments API did not return JSON. Response:";
-            echo "$response"
-          fi
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
