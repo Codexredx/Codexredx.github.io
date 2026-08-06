@@ -55,6 +55,21 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Cancel in-progress Pages deployments
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Checking for in-progress Pages deployments..."
+          deployments=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/deployments" | jq -r '.[] | select(.status=="in_progress" or .status=="queued" or .status=="deploying") | .id')
+          if [ -z "$deployments" ]; then
+            echo "No in-progress Pages deployments found."
+          else
+            for id in $deployments; do
+              echo "Cancelling Pages deployment $id"
+              curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/deployments/$id/cancel" || true
+            done
+          fi
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
