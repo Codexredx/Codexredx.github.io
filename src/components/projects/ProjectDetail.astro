@@ -17,7 +17,7 @@ export interface Props {
 const { card, total, backLabel, prev, next } = Astro.props;
 const d = card.detail;
 
-// Heidelberg has no breakdown sections at all — the grid must not reserve
+// Heidelberg has no breakdown sections at all - the grid must not reserve
 // space (and padding) for a column layout that renders nothing.
 const hasColumns = Boolean(d.modules || d.milestones || d.tech_groups || d.notes || d.tools || d.research);
 
@@ -191,7 +191,7 @@ const showSubtitle = d.subtitle !== card.meta_value;
     {prev ? (
       <a class="nav-link prev" href={projectPath(prev.slug)}>
         <span class="nav-dir">&lt;&lt;&lt; Previous</span>
-        <span class="nav-name">{prev.index} — {prev.title}</span>
+        <span class="nav-name">{prev.index} - {prev.title}</span>
       </a>
     ) : (
       <span class="nav-link empty"></span>
@@ -202,7 +202,7 @@ const showSubtitle = d.subtitle !== card.meta_value;
     {next ? (
       <a class="nav-link next" href={projectPath(next.slug)}>
         <span class="nav-dir">Next &gt;&gt;&gt;</span>
-        <span class="nav-name">{next.index} — {next.title}</span>
+        <span class="nav-name">{next.index} - {next.title}</span>
       </a>
     ) : (
       <span class="nav-link empty"></span>

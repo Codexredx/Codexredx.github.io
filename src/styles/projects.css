@@ -1,5 +1,5 @@
 /*
- * Projects page — a plain card list.
+ * Projects page - a plain card list.
  *
  * The page is a normal document: `.main-projects` in global.css carries only
  * the background and stacking context, everything else lives here.
@@ -195,7 +195,7 @@
   color: #0d0221;
 }
 
-/* Discover is the card's own page — the one action every card has. */
+/* Discover is the card's own page - the one action every card has. */
 .project-card .card-link.primary {
   border-color: #2de2e6;
   color: #2de2e6;
