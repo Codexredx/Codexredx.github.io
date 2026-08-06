@@ -183,7 +183,7 @@
         },
         {
           "type": "paragraph",
-          "text": "BHons Computer Science, in progress.",
+          "text": "BSCHons Computer Science, in progress.",
           "spans": []
         }
       ],
@@ -448,7 +448,7 @@
           "slug": "university-of-pretoria",
           "title": "University of Pretoria",
           "meta_label": "Programme",
-          "meta_value": "BHons Computer Science",
+          "meta_value": "BSCHons Computer Science",
           "period": "2026",
           "current": true,
           "image": "/images/projects/university-of-pretoria.jpg",
@@ -456,7 +456,7 @@
           "description": [
             {
               "type": "paragraph",
-              "text": "Completing BHons Computer Science at UP - genetic programming, neural networks, natural language processing, image processing, data mining and software engineering at postgraduate level, alongside an independent research dissertation.",
+              "text": "Completing BSCHons Computer Science at UP - genetic programming, neural networks, natural language processing, image processing, data mining and software engineering at postgraduate level, alongside an independent research dissertation.",
               "spans": []
             }
           ],
