@@ -1,0 +1,565 @@
+/*
+ * Single project page — the long-form version of one card on /projects.
+ *
+ * Same palette and type scale as the rest of the site: #0d0221 ground,
+ * #f5d7e3 text, cyan #2de2e6 for state, pink #f6019d for labels, purple
+ * #540d6e for hairlines. Powerr sets display type, VCR OSD Mono every label,
+ * Swansea the running copy.
+ */
+
+.main-project-detail {
+  padding-bottom: 50px;
+}
+
+.project-detail {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 140px 25px 0;
+}
+
+/* ---- hero ---- */
+.detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border: 1px solid #f5d7e3;
+  background-color: #0d0221;
+}
+
+.detail-hero .hero-media {
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid #f5d7e3;
+  /* The grid sizes this column off the copy beside it; a short page must not
+     crush the image into a strip. */
+  min-height: 340px;
+}
+
+.detail-hero .hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.2) contrast(1.05);
+}
+
+/* The CRT lines are what tie a photographic hero back into the rest of the
+   site; without them the image reads as a stock banner. */
+.detail-hero .hero-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(13, 2, 33, 0.35) 0,
+      rgba(13, 2, 33, 0.35) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(90deg, rgba(13, 2, 33, 0.65), rgba(13, 2, 33, 0) 55%);
+}
+
+.detail-hero .hero-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+.detail-hero .hero-index {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #2de2e6;
+}
+
+.detail-hero .hero-back {
+  color: #f5d7e3;
+  border-bottom: 1px solid #540d6e;
+}
+
+.detail-hero .hero-back:hover {
+  color: #2de2e6;
+  border-color: #2de2e6;
+}
+
+.detail-hero .hero-count {
+  margin-left: auto;
+}
+
+.detail-hero .hero-badge {
+  padding: 2px 8px;
+  border: 1px solid #f6019d;
+  color: #f6019d;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.detail-hero .hero-title {
+  font-family: Powerr;
+  text-transform: uppercase;
+  font-size: 65px;
+  line-height: 1;
+  margin: 25px 0 0;
+}
+
+.detail-hero .hero-subtitle {
+  font-family: Swansea, helvetica;
+  font-size: 17px;
+  margin-top: 15px;
+  color: #2de2e6;
+}
+
+.detail-hero .hero-meta {
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px dashed #540d6e;
+}
+
+.detail-hero .hero-meta .meta-label {
+  color: #f6019d;
+  margin-right: 8px;
+}
+
+.detail-hero .hero-meta .meta-sep {
+  margin: 0 8px;
+  color: #540d6e;
+}
+
+/* ---- summary ---- */
+.detail-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 50px;
+  padding: 50px 0 0;
+}
+
+.detail-summary .summary-text {
+  font-family: Swansea, helvetica;
+  font-size: 17px;
+}
+
+.detail-summary .summary-text p {
+  margin: 0 0 1em;
+  text-align: justify;
+}
+
+.detail-summary .summary-tags {
+  grid-column: 1;
+  /* Sits directly under the copy it qualifies, not a full gap below it. */
+  margin-top: -25px;
+}
+
+/* The quote runs alongside the summary as a pull-quote, not under it. */
+.detail-summary .detail-quote {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: start;
+  margin: 0;
+  padding: 20px 25px;
+  border-left: 2px solid #f6019d;
+  background: linear-gradient(90deg, rgba(246, 1, 157, 0.12), transparent 70%);
+}
+
+.detail-summary .detail-quote p {
+  font-family: Powerr;
+  font-size: 27px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.detail-summary .detail-quote cite {
+  display: block;
+  font-family: VCR OSD Mono, monospace;
+  font-style: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: 12px;
+  color: #2de2e6;
+}
+
+/* ---- body columns ---- */
+.detail-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px;
+  padding-top: 50px;
+  align-items: start;
+}
+
+/* `display: grid` above outbids the UA's [hidden] rule, so restate it. */
+.detail-columns[hidden] {
+  display: none;
+}
+
+.detail-block.span-wide {
+  grid-column: 1 / -1;
+}
+
+.block-title {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #f6019d;
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #540d6e;
+}
+
+/* ---- modules ---- */
+.module-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.module-card {
+  border: 1px solid #540d6e;
+  background: rgba(84, 13, 110, 0.12);
+  padding: 20px;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.module-card:hover {
+  border-color: #2de2e6;
+  background: rgba(45, 226, 230, 0.06);
+  transform: translateY(-2px);
+}
+
+.module-card h3 {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+  color: #2de2e6;
+}
+
+.module-card .module-subtitle {
+  display: block;
+  font-size: 11px;
+  text-transform: none;
+  color: #f6019d;
+  margin-top: 4px;
+}
+
+.module-card p {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* ---- milestones ---- */
+.milestone-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 25px;
+  border-left: 1px solid #540d6e;
+}
+
+.milestone {
+  position: relative;
+  padding: 0 0 25px;
+}
+
+.milestone:last-child {
+  padding-bottom: 0;
+}
+
+.milestone .milestone-dot {
+  position: absolute;
+  top: 4px;
+  left: -30px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #540d6e;
+  background-color: #0d0221;
+}
+
+.milestone.done .milestone-dot {
+  border-color: #2de2e6;
+  background-color: #2de2e6;
+  box-shadow: 0 0 8px rgba(45, 226, 230, 0.7);
+}
+
+.milestone .milestone-label {
+  display: block;
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #2de2e6;
+}
+
+.milestone .milestone-text {
+  display: block;
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+/* ---- tech groups and notes ---- */
+.tech-group,
+.note {
+  margin-bottom: 25px;
+}
+
+.tech-group:last-child,
+.note:last-child {
+  margin-bottom: 0;
+}
+
+.group-label {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #2de2e6;
+  margin: 0 0 10px;
+}
+
+.note-text {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+
+/* about.css owns .tag-list, but that sheet is only loaded on /about. */
+.project-detail .tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.project-detail .tag-list li {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 4px 12px;
+  border: 1px solid #540d6e;
+}
+
+.project-detail .tag-list.cyan li {
+  border-color: #2de2e6;
+  color: #2de2e6;
+}
+
+.project-detail .tag-list.pink li {
+  border-color: #f6019d;
+  color: #f6019d;
+}
+
+.project-detail .tag-list.gold li {
+  border-color: #f9c80e;
+  color: #f9c80e;
+}
+
+/* ---- research panel ---- */
+.research-panel {
+  border: 1px solid #2de2e6;
+  background: rgba(45, 226, 230, 0.06);
+  padding: 25px;
+}
+
+.research-panel h3 {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 15px;
+  color: #2de2e6;
+}
+
+.research-panel p {
+  font-family: Swansea, helvetica;
+  font-size: 15px;
+  margin: 0 0 1em;
+  text-align: justify;
+}
+
+.research-panel .research-footnote {
+  margin: 0;
+  text-align: left;
+}
+
+.research-panel .research-footnote span {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #f6019d;
+  margin-right: 8px;
+}
+
+/* ---- gallery ---- */
+.detail-gallery {
+  padding-top: 50px;
+}
+
+.gallery-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item figure {
+  margin: 0;
+  border: 1px solid #540d6e;
+  transition: border-color 0.25s ease;
+}
+
+.gallery-item:hover figure {
+  border-color: #2de2e6;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  filter: grayscale(0.35) contrast(1.05);
+  transition: filter 0.35s ease;
+}
+
+.gallery-item:hover img {
+  filter: none;
+}
+
+.gallery-item figcaption {
+  font-family: VCR OSD Mono, monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 12px 15px;
+  border-top: 1px solid #540d6e;
+}
+
+/* ---- prev / next ---- */
+.detail-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 75px;
+  padding-top: 25px;
+  border-top: 1px solid #540d6e;
+  font-family: VCR OSD Mono, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.detail-nav .nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px;
+  border: 1px solid transparent;
+}
+
+.detail-nav a.nav-link:hover {
+  border-color: #2de2e6;
+  color: #2de2e6;
+}
+
+.detail-nav .nav-dir {
+  color: #f6019d;
+}
+
+.detail-nav .nav-link.next {
+  text-align: right;
+}
+
+.detail-nav .nav-link.all {
+  align-items: center;
+  justify-content: center;
+  border-color: #f5d7e3;
+}
+
+.detail-nav .nav-link.empty {
+  border: none;
+}
+
+/* ---- responsive ---- */
+@media screen and (max-width: 1024px) {
+  .detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-hero .hero-media {
+    border-right: none;
+    border-bottom: 1px solid #f5d7e3;
+    aspect-ratio: 3 / 2;
+  }
+
+  .detail-hero .hero-title {
+    font-size: 48px;
+  }
+
+  .detail-hero .hero-body {
+    padding: 25px;
+  }
+
+  .detail-summary,
+  .detail-columns {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .detail-summary .summary-tags,
+  .detail-summary .detail-quote {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .project-detail {
+    padding: 120px 10px 0;
+  }
+
+  .detail-hero .hero-title {
+    font-size: 34px;
+  }
+
+  .detail-summary .detail-quote p {
+    font-size: 21px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-nav .nav-link.next {
+    text-align: left;
+  }
+
+  .detail-nav .nav-link.empty {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .module-card,
+  .gallery-item img,
+  .gallery-item figure {
+    transition: none;
+  }
+}

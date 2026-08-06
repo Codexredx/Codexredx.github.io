@@ -1,0 +1,211 @@
+---
+import { projectPath } from '~/lib/content';
+import { renderRichText } from '~/lib/prismic';
+import type { getBundle } from '~/lib/content';
+
+type Projects = ReturnType<typeof getBundle>['pages']['projects'];
+type Card = Projects['cards'][number];
+
+export interface Props {
+  card: Card;
+  total: number;
+  backLabel: string;
+  prev: { slug: string; title: string; index: string } | null;
+  next: { slug: string; title: string; index: string } | null;
+}
+
+const { card, total, backLabel, prev, next } = Astro.props;
+const d = card.detail;
+
+// Heidelberg has no breakdown sections at all — the grid must not reserve
+// space (and padding) for a column layout that renders nothing.
+const hasColumns = Boolean(d.modules || d.milestones || d.tech_groups || d.notes || d.tools || d.research);
+
+// Some subtitles restate the card's meta value word for word; printing both
+// twice in the hero just reads as a mistake.
+const showSubtitle = d.subtitle !== card.meta_value;
+---
+
+<article class="project-detail">
+  {/* Not a <header>: global.css styles that element bare (fixed, full-width,
+      pointer-events:none) for the site nav, and it would pin this over the page. */}
+  <div class="detail-hero">
+    <div class="hero-media">
+      <img
+        src={card.image}
+        alt={card.alt}
+        width="1400"
+        height="933"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <span class="hero-scanlines" aria-hidden="true"></span>
+    </div>
+
+    <div class="hero-body">
+      <p class="hero-index">
+        <a class="hero-back" href="/projects">&lt;&lt;&lt; {backLabel}</a>
+        <span class="hero-count">{card.index} / {String(total).padStart(3, '0')}</span>
+        {card.current && <span class="hero-badge">&#9679; Current</span>}
+      </p>
+
+      <h1 class="hero-title">{card.title}</h1>
+      {showSubtitle && <p class="hero-subtitle">{d.subtitle}</p>}
+
+      <p class="hero-meta">
+        <span class="meta-label">{card.meta_label}</span>
+        {card.meta_value}
+        <span class="meta-sep">/</span>
+        {card.period}
+      </p>
+    </div>
+  </div>
+
+  <section class="detail-summary">
+    <div class="summary-text" set:html={renderRichText(d.summary)} />
+
+    {d.summary_tags && (
+      <ul class:list={['tag-list', d.summary_tags.accent, 'summary-tags']}>
+        {d.summary_tags.tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+    )}
+
+    {d.quote && (
+      <blockquote class="detail-quote">
+        <p>{d.quote.text}</p>
+        <cite>{d.quote.source}</cite>
+      </blockquote>
+    )}
+  </section>
+
+  <div class="detail-columns" hidden={!hasColumns}>
+    {d.modules && (
+      <section class="detail-block span-wide">
+        <h2 class="block-title">{d.modules.title}</h2>
+        <ul class="module-grid">
+          {d.modules.items.map((item) => (
+            <li class="module-card">
+              <h3>
+                {item.title}
+                {item.subtitle && <span class="module-subtitle">{item.subtitle}</span>}
+              </h3>
+              <p>{item.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {d.milestones && (
+      <section class="detail-block">
+        <h2 class="block-title">{d.milestones.title}</h2>
+        <ol class="milestone-list">
+          {d.milestones.items.map((item) => (
+            <li class:list={['milestone', item.done && 'done']}>
+              <span class="milestone-dot" aria-hidden="true"></span>
+              <span class="milestone-label">{item.label}</span>
+              <span class="milestone-text">{item.text}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    {d.tech_groups && (
+      <section class="detail-block">
+        <h2 class="block-title">{d.tech_groups.title}</h2>
+        {d.tech_groups.groups.map((group) => (
+          <div class="tech-group">
+            <p class="group-label">{group.title}</p>
+            <ul class="tag-list">
+              {group.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </div>
+        ))}
+      </section>
+    )}
+
+    {d.notes && (
+      <section class="detail-block">
+        <h2 class="block-title">{d.notes.title}</h2>
+        {d.notes.items.map((item) => (
+          <div class="note">
+            <p class="group-label">{item.label}</p>
+            <p class="note-text">{item.text}</p>
+            <ul class="tag-list">
+              {item.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </div>
+        ))}
+      </section>
+    )}
+
+    {d.tools && (
+      <section class="detail-block">
+        <h2 class="block-title">{d.tools.title}</h2>
+        <ul class="tag-list cyan">
+          {d.tools.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {d.research && (
+      <section class="detail-block">
+        <h2 class="block-title">{d.research.title}</h2>
+        <div class="research-panel">
+          <h3>{d.research.heading}</h3>
+          {d.research.text.map((para) => <p>{para}</p>)}
+          <p class="research-footnote">
+            <span>{d.research.footnote_label}</span>
+            {d.research.footnote}
+          </p>
+        </div>
+      </section>
+    )}
+  </div>
+
+  {d.gallery && (
+    <section class="detail-gallery">
+      <h2 class="block-title">{d.gallery.title}</h2>
+      <ul class="gallery-grid">
+        {d.gallery.items.map((item) => (
+          <li class="gallery-item">
+            <figure>
+              <img
+                src={item.url}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{item.caption}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <nav class="detail-nav" aria-label="Other projects">
+    {prev ? (
+      <a class="nav-link prev" href={projectPath(prev.slug)}>
+        <span class="nav-dir">&lt;&lt;&lt; Previous</span>
+        <span class="nav-name">{prev.index} — {prev.title}</span>
+      </a>
+    ) : (
+      <span class="nav-link empty"></span>
+    )}
+
+    <a class="nav-link all" href="/projects">{backLabel}</a>
+
+    {next ? (
+      <a class="nav-link next" href={projectPath(next.slug)}>
+        <span class="nav-dir">Next &gt;&gt;&gt;</span>
+        <span class="nav-name">{next.index} — {next.title}</span>
+      </a>
+    ) : (
+      <span class="nav-link empty"></span>
+    )}
+  </nav>
+</article>

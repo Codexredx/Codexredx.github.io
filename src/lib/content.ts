@@ -24,3 +24,13 @@ export function pagePath(page: PageKey): string {
 export function canonicalUrl(page: PageKey): string {
   return `${SITE_ORIGIN}${pagePath(page)}`;
 }
+
+/** Path for a single project's detail page. */
+export function projectPath(slug: string): string {
+  return `/projects/${slug}`;
+}
+
+/** Canonical absolute URL for any path already rooted at the site origin. */
+export function absoluteUrl(path: string): string {
+  return `${SITE_ORIGIN}${path}`;
+}

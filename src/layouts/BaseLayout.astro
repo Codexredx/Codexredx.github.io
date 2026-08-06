@@ -1,6 +1,6 @@
 ---
 import type { PageKey } from '~/lib/content';
-import { LANG, SITE_ORIGIN, getBundle, canonicalUrl } from '~/lib/content';
+import { LANG, SITE_ORIGIN, getBundle, canonicalUrl, absoluteUrl } from '~/lib/content';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
 import Loader from '~/components/Loader.astro';
@@ -11,15 +11,20 @@ import '~/styles/port.css';
 export interface Props {
   page: PageKey;
   mainClass: string;
+  /** Sub-pages (a single project, say) carry their own metadata; `page` still
+   *  drives which nav entry reads as current. */
+  title?: string;
+  description?: string;
+  path?: string;
 }
 
-const { page, mainClass } = Astro.props;
+const { page, mainClass, title: titleProp, description: descriptionProp, path } = Astro.props;
 const bundle = getBundle();
 const pageData = bundle.pages[page] as { page_title: string; page_description: string };
 
-const title = pageData.page_title;
-const description = pageData.page_description;
-const canonical = canonicalUrl(page);
+const title = titleProp ?? pageData.page_title;
+const description = descriptionProp ?? pageData.page_description;
+const canonical = path ? absoluteUrl(path) : canonicalUrl(page);
 
 const jsonLd = {
   '@context': 'https://schema.org/',

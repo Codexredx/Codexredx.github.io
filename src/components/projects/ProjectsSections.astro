@@ -1,5 +1,5 @@
 ---
-import { getBundle } from '~/lib/content';
+import { getBundle, projectPath } from '~/lib/content';
 import { renderRichText } from '~/lib/prismic';
 
 const page = getBundle().pages.projects;
@@ -22,7 +22,7 @@ const title = page.projects_title[1]?.text ?? '';
     {
       page.cards.map((card) => (
         <li class="project-card">
-          <div class="card-media">
+          <a class="card-media" href={projectPath(card.slug)} tabindex="-1" aria-hidden="true">
             <img
               src={card.image}
               alt={card.alt}
@@ -31,7 +31,7 @@ const title = page.projects_title[1]?.text ?? '';
               decoding="async"
               loading="lazy"
             />
-          </div>
+          </a>
 
           <div class="card-body">
             <p class="card-index">
@@ -39,7 +39,9 @@ const title = page.projects_title[1]?.text ?? '';
               {card.current && <span class="card-badge">&#9679; Current</span>}
             </p>
 
-            <h3 class="card-title">{card.title}</h3>
+            <h3 class="card-title">
+              <a href={projectPath(card.slug)}>{card.title}</a>
+            </h3>
 
             <p class="card-meta">
               <span class="meta-label">{card.meta_label}</span>
@@ -56,11 +58,17 @@ const title = page.projects_title[1]?.text ?? '';
               ))}
             </ul>
 
-            {card.link && (
-              <a class="card-link" href={card.link} target="_blank" rel="noreferrer">
-                Visit &gt;&gt;&gt;
+            <div class="card-actions">
+              <a class="card-link primary" href={projectPath(card.slug)}>
+                {page.discover_label} &gt;&gt;&gt;
               </a>
-            )}
+
+              {card.link && (
+                <a class="card-link" href={card.link} target="_blank" rel="noreferrer">
+                  Visit &gt;&gt;&gt;
+                </a>
+              )}
+            </div>
           </div>
         </li>
       ))

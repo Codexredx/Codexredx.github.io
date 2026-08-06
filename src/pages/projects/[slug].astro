@@ -1,0 +1,39 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ProjectDetail from '~/components/projects/ProjectDetail.astro';
+import { getBundle, projectPath } from '~/lib/content';
+import '~/styles/projects.css';
+import '~/styles/project-detail.css';
+
+export function getStaticPaths() {
+  const page = getBundle().pages.projects;
+  const cards = page.cards;
+
+  return cards.map((card, i) => {
+    const before = cards[i - 1];
+    const after = cards[i + 1];
+
+    return {
+      params: { slug: card.slug },
+      props: {
+        card,
+        total: cards.length,
+        backLabel: page.back_label,
+        prev: before ? { slug: before.slug, title: before.title, index: before.index } : null,
+        next: after ? { slug: after.slug, title: after.title, index: after.index } : null,
+      },
+    };
+  });
+}
+
+const { card, total, backLabel, prev, next } = Astro.props;
+---
+
+<BaseLayout
+  page="projects"
+  mainClass="main-projects main-project-detail"
+  title={card.detail.page_title}
+  description={card.detail.page_description}
+  path={projectPath(card.slug)}>
+  <ProjectDetail card={card} total={total} backLabel={backLabel} prev={prev} next={next} />
+</BaseLayout>

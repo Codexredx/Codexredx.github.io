@@ -323,6 +323,7 @@
       "cards": [
         {
           "index": "001",
+          "slug": "yellow-clip",
           "title": "Yellow Clip",
           "meta_label": "Role",
           "meta_value": "IT Consultant · Financial Services",
@@ -345,10 +346,120 @@
             "Python",
             "Oracle DB"
           ],
-          "link": null
+          "link": null,
+          "detail": {
+            "page_title": "Yellow Clip — Conrad du Toit",
+            "page_description": "IT consulting at Yellow Clip's financial services branch — SCADA/HMI diagram UI development, statistical analysis and AWS DevOps.",
+            "subtitle": "IT Consultant / Financial Services / Part-time",
+            "summary": [
+              {
+                "type": "paragraph",
+                "text": "Worked part-time as an IT consultant at Yellow Clip's financial services branch, contributing to data visualisation, SCADA/HMI diagram development and statistical analysis for the MLA team. Also took on DevOps responsibilities on AWS — designing and deploying cloud infrastructure to support the team's data pipelines and web applications.",
+                "spans": []
+              }
+            ],
+            "summary_tags": null,
+            "quote": {
+              "text": "A man who does not plan long ahead will find trouble right at his door.",
+              "source": "Confucius"
+            },
+            "milestones": {
+              "title": "Key Responsibilities",
+              "items": [
+                {
+                  "label": "Data Visualisation",
+                  "done": true,
+                  "text": "Built data visualisation dashboards for the MLA team using statistics and JointJS for SCADA/HMI diagram UI development."
+                },
+                {
+                  "label": "Statistics",
+                  "done": true,
+                  "text": "Developed statistical analyses and reports in close cooperation with management to support data-driven decision-making."
+                },
+                {
+                  "label": "Workflow Mapping",
+                  "done": true,
+                  "text": "Interacted with cross-functional teams to map and document existing workflows, identifying bottlenecks and inefficiencies."
+                },
+                {
+                  "label": "Optimisation",
+                  "done": true,
+                  "text": "Redesigned and optimised workflows according to each team's specific operational needs and capacity."
+                },
+                {
+                  "label": "AWS DevOps",
+                  "done": true,
+                  "text": "Set up and managed Lambda functions, RDS instances, VPCs and REST APIs on Amazon Web Services, gaining hands-on cloud infrastructure experience."
+                }
+              ]
+            },
+            "tech_groups": {
+              "title": "Technologies Used",
+              "groups": [
+                {
+                  "title": "Frontend & UI",
+                  "tags": [
+                    "React",
+                    "React Native",
+                    "JointJS",
+                    "LitElement",
+                    "JavaScript",
+                    "HTML / CSS"
+                  ]
+                },
+                {
+                  "title": "Backend & Data",
+                  "tags": [
+                    "Node.JS",
+                    "Springboot",
+                    "Java",
+                    "Python",
+                    "SQL",
+                    "Oracle DB"
+                  ]
+                },
+                {
+                  "title": "Cloud & DevOps",
+                  "tags": [
+                    "AWS Lambda",
+                    "AWS RDS",
+                    "AWS EC2",
+                    "AWS S3",
+                    "VPCs",
+                    "API Gateway",
+                    "GitHub Actions"
+                  ]
+                }
+              ]
+            },
+            "modules": null,
+            "notes": null,
+            "tools": null,
+            "research": null,
+            "gallery": {
+              "title": "On Site",
+              "items": [
+                {
+                  "url": "/images/projects/detail/yellow-clip-1.jpg",
+                  "alt": "Two people shaking hands across a desk",
+                  "caption": "A deal being made",
+                  "width": 1200,
+                  "height": 801
+                },
+                {
+                  "url": "/images/projects/detail/yellow-clip-2.jpg",
+                  "alt": "Two people annotating a hand-drawn plan between open laptops",
+                  "caption": "Planning and reviewing",
+                  "width": 1200,
+                  "height": 801
+                }
+              ]
+            }
+          }
         },
         {
           "index": "002",
+          "slug": "university-of-pretoria",
           "title": "University of Pretoria",
           "meta_label": "Programme",
           "meta_value": "BHons Computer Science",
@@ -371,10 +482,120 @@
             "OpenCV",
             "Pandas"
           ],
-          "link": null
+          "link": null,
+          "detail": {
+            "page_title": "University of Pretoria — Conrad du Toit",
+            "page_description": "BHons Computer Science at the University of Pretoria — AI, neural networks, NLP, data mining and image processing, with an independent research dissertation.",
+            "subtitle": "BHons Computer Science / University of Pretoria",
+            "summary": [
+              {
+                "type": "paragraph",
+                "text": "Currently completing a Bachelor of Honours in Computer Science at the University of Pretoria, building on my BSc IT from NWU with a deep focus on artificial intelligence, machine learning and research methodology. The programme requires a minimum of 120 credits of postgraduate coursework and culminates in an independent research dissertation supervised by a faculty member. Admission requires a 60% average over all third-year Computer Science modules.",
+                "spans": []
+              }
+            ],
+            "summary_tags": null,
+            "quote": {
+              "text": "It always seems impossible until it's done.",
+              "source": "Nelson Mandela"
+            },
+            "milestones": {
+              "title": "Year Milestones",
+              "items": [
+                {
+                  "label": "Q1 — Jan / Mar 2025",
+                  "done": true,
+                  "text": "Programme commencement, orientation and initial literature review."
+                },
+                {
+                  "label": "Q2 — Apr / Jun 2025",
+                  "done": true,
+                  "text": "Research proposal submission and first-semester coursework."
+                },
+                {
+                  "label": "Q3 — Jul / Sep 2025",
+                  "done": false,
+                  "text": "Experiments, data collection and dissertation chapter drafts."
+                },
+                {
+                  "label": "Q4 — Oct / Nov 2025",
+                  "done": false,
+                  "text": "Final submission, presentation and oral examination."
+                }
+              ]
+            },
+            "tech_groups": null,
+            "modules": {
+              "title": "Modules",
+              "items": [
+                {
+                  "title": "Research Methodology & Project",
+                  "subtitle": null,
+                  "text": "A two-part compulsory module. The first semester covers research best practices: designing rigorous studies, conducting literature reviews and structuring academic writing. The project component then applies these methods to produce an original technical research report — which can be a new piece of software, a model, an algorithm, or a theoretical contribution — in one of the department's active research areas."
+                },
+                {
+                  "title": "Artificial Intelligence I",
+                  "subtitle": "Genetic Programming & Grammatical Evolution",
+                  "text": "Focuses on Evolutionary Computation and Swarm Intelligence as two Computational Intelligence paradigms. Covers genetic algorithms, genetic programming, grammatical evolution, evolutionary strategies, differential evolution and co-evolution — all modelling Darwinian evolution. Also explores swarm-based optimisers such as ant colony optimisation and particle swarm optimisation, applied to multi-objective and dynamic complex problem spaces."
+                },
+                {
+                  "title": "Artificial Intelligence II",
+                  "subtitle": "Neural Networks",
+                  "text": "Covers three Computational Intelligence paradigms. Artificial Neural Networks are studied in depth — including supervised, unsupervised and reinforcement learning, and the factors that govern network performance. Artificial Immune Systems model the human biological immune system (negative selection, clonal selection, network and danger theory). Fuzzy Systems introduce reasoning under uncertainty using fuzzy logic and rough sets."
+                },
+                {
+                  "title": "Software Engineering I",
+                  "subtitle": null,
+                  "text": "A comprehensive study of contemporary software engineering theory and practice, addressing the challenges of scale, complexity and urgency in real-world systems. Covers design, development, deployment and ongoing operation of software, and shows how standardisation and reuse strategies lead to software that is predictable, repeatable, robust and aligned with user requirements."
+                },
+                {
+                  "title": "Data Mining",
+                  "subtitle": null,
+                  "text": "Covers the full knowledge-discovery pipeline from raw data to actionable insight. Topics include process models (CRISP-DM and SEMMA), exploratory data analysis, dimensionality reduction via PCA and feature selection, descriptive modelling (clustering and association rules), and predictive modelling using decision trees, k-NN, Naive Bayes, neural networks and ensemble methods. Text and image mining are also introduced."
+                },
+                {
+                  "title": "Natural Language Processing",
+                  "subtitle": null,
+                  "text": "Introduces students to data and information analytics through mining both structured and unstructured text data. Students apply generative AI techniques to extract insights from data and use novel methods to collect and analyse personal and public web postings through big data case studies. The module develops knowledge of core NLP algorithms — covering information extraction, machine translation, text summarisation and question answering — and the underlying algorithmic and linguistic foundations needed to work with real-world textual data."
+                },
+                {
+                  "title": "Image Processing",
+                  "subtitle": null,
+                  "text": "A special-topics module in which the Department of Computer Science presents current and advanced research themes. In the current year the topic is digital image processing: covering the mathematical and algorithmic foundations of acquiring, transforming and analysing images. Topics include spatial-domain and frequency-domain filtering (Fourier transforms), edge detection, morphological operations, image segmentation and feature extraction — the core building blocks for computer vision systems applied in fields from medical imaging to autonomous vehicles."
+                }
+              ]
+            },
+            "notes": null,
+            "tools": {
+              "title": "Tools & Technologies",
+              "tags": [
+                "Python",
+                "TensorFlow",
+                "scikit-learn",
+                "NLTK / spaCy",
+                "OpenCV",
+                "Pandas",
+                "NumPy",
+                "Jupyter",
+                "Git",
+                "LaTeX"
+              ]
+            },
+            "research": {
+              "title": "Research Focus",
+              "heading": "Dissertation — How good are LLMs in providing formative feedback and automated scoring for Regular Expression pedagogy.",
+              "text": [
+                "Teaching tools that check students' regular expression answers can tell them if they're wrong, but not why — and that explanation gap is where learning breaks down. This research investigates whether large language models (GPT-4o and Gemini) can fill that gap by generating accurate scores and genuinely useful, natural-language feedback on student submissions. The study tests three prompting strategies — zero-shot, few-shot, and chain-of-thought — to identify which approach produces the most reliable grading and the most actionable feedback, giving educators concrete guidance on how to actually deploy these tools in a classroom."
+              ],
+              "footnote_label": "Supervisor",
+              "footnote": "Dr Okuboyejo, Department of Computer Science, University of Pretoria."
+            },
+            "gallery": null
+          }
         },
         {
           "index": "003",
+          "slug": "north-west-university",
           "title": "North-West University",
           "meta_label": "Programme",
           "meta_value": "BSc Information Technology",
@@ -397,10 +618,152 @@
             "JavaScript",
             "Agile"
           ],
-          "link": null
+          "link": null,
+          "detail": {
+            "page_title": "North-West University — Conrad du Toit",
+            "page_description": "BSc Information Technology at NWU Potchefstroom — Java, C#, Python, SQL and final-year modules in AI, decision support systems, advanced databases and networks.",
+            "subtitle": "BSc Information Technology / NWU Potchefstroom",
+            "summary": [
+              {
+                "type": "paragraph",
+                "text": "Completed my BSc in Information Technology at NWU Potchefstroom, where the degree's focus on programming fundamentals and methodology gave me practical experience across a wide range of languages and paradigms. Java formed the backbone of object-oriented programming; C#, JavaScript, HTML and SQL were used for GUIs, webpages and database systems; Python for a chat-app architecture and data analysis projects; and MATLAB and R for mathematics, physics and statistics modules. I took a leading role in team projects, applying Agile methodology across the full software development lifecycle.",
+                "spans": []
+              }
+            ],
+            "summary_tags": {
+              "accent": "cyan",
+              "tags": [
+                "Java",
+                "C#",
+                "JavaScript",
+                "Python",
+                "SQL",
+                "HTML / CSS",
+                "R",
+                "MATLAB",
+                "Agile",
+                "Git"
+              ]
+            },
+            "quote": {
+              "text": "Stay hungry, stay foolish.",
+              "source": "Steve Jobs"
+            },
+            "milestones": null,
+            "tech_groups": null,
+            "modules": {
+              "title": "Final Year Modules",
+              "items": [
+                {
+                  "title": "Databases",
+                  "subtitle": null,
+                  "text": "Design, implementation and querying of relational and non-relational database systems using SQL and advanced database concepts."
+                },
+                {
+                  "title": "Advanced Databases",
+                  "subtitle": null,
+                  "text": "Extended topics covering database optimisation, transactions, indexing strategies, distributed databases and big-data storage patterns."
+                },
+                {
+                  "title": "Decision Support Systems I",
+                  "subtitle": null,
+                  "text": "Introduction to decision-support architectures, data warehousing, OLAP and business intelligence tools that inform strategic decisions."
+                },
+                {
+                  "title": "Decision Support Systems II",
+                  "subtitle": null,
+                  "text": "Advanced DSS topics including model-driven and data-driven decision systems, dashboards and predictive analytics pipelines."
+                },
+                {
+                  "title": "Artificial Intelligence",
+                  "subtitle": null,
+                  "text": "Foundations of AI including search algorithms, knowledge representation, machine learning concepts and practical applications."
+                },
+                {
+                  "title": "Computer Networks",
+                  "subtitle": null,
+                  "text": "TCP/IP protocol suite, network architectures, routing, switching, network services administration and troubleshooting."
+                },
+                {
+                  "title": "Operating Systems",
+                  "subtitle": null,
+                  "text": "Process management, memory management, file systems, concurrency and the principles underlying modern OS design."
+                },
+                {
+                  "title": "IT Developments",
+                  "subtitle": null,
+                  "text": "Current and emerging trends in the IT industry, covering topics such as cloud computing, IoT, cyber security and the future of software."
+                }
+              ]
+            },
+            "notes": {
+              "title": "Languages & Paradigms",
+              "items": [
+                {
+                  "label": "Object-Oriented",
+                  "text": "Java was the primary language for object-oriented programming — covering inheritance, polymorphism, design patterns and data structures. C# was used for GUI development and Windows application projects.",
+                  "tags": [
+                    "Java",
+                    "C#"
+                  ]
+                },
+                {
+                  "label": "Web & Databases",
+                  "text": "HTML, CSS and JavaScript were used to build interactive webpages and front-end interfaces. SQL drove all database work — from schema design through to stored procedures and complex joins.",
+                  "tags": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "SQL"
+                  ]
+                },
+                {
+                  "label": "Data & Analysis",
+                  "text": "Python was used for building a chat-app back-end architecture as well as data analysis and scripting tasks. R and MATLAB covered statistical computing, mathematical modelling and physics simulations.",
+                  "tags": [
+                    "Python",
+                    "R",
+                    "MATLAB"
+                  ]
+                }
+              ]
+            },
+            "tools": {
+              "title": "Tools & Practices",
+              "tags": [
+                "Git / GitHub",
+                "Agile / Scrum",
+                "UML",
+                "Visual Studio",
+                "IntelliJ",
+                "MySQL"
+              ]
+            },
+            "research": null,
+            "gallery": {
+              "title": "Campus",
+              "items": [
+                {
+                  "url": "/images/projects/detail/north-west-university-1.jpg",
+                  "alt": "Three students talking around a table of laptops and notebooks",
+                  "caption": "Project meeting",
+                  "width": 1200,
+                  "height": 801
+                },
+                {
+                  "url": "/images/projects/detail/north-west-university-2.jpg",
+                  "alt": "An aisle between full shelves in a university library",
+                  "caption": "Library at NWU",
+                  "width": 1200,
+                  "height": 800
+                }
+              ]
+            }
+          }
         },
         {
           "index": "004",
+          "slug": "hoer-volkskool-heidelberg",
           "title": "Hoër Volkskool Heidelberg",
           "meta_label": "Qualification",
           "meta_value": "National Senior Certificate",
@@ -420,11 +783,62 @@
             "Physical Sciences",
             "Engineering Graphics"
           ],
-          "link": null
+          "link": null,
+          "detail": {
+            "page_title": "Hoër Volkskool Heidelberg — Conrad du Toit",
+            "page_description": "National Senior Certificate at Hoër Volkskool Heidelberg — Mathematics, Physical Sciences and Engineering Graphics and Design.",
+            "subtitle": "National Senior Certificate",
+            "summary": [
+              {
+                "type": "paragraph",
+                "text": "This is where I completed my NSC and first developed my passion for technology and engineering through subjects such as Physics, Mathematics and Engineering Graphics and Design. The analytical rigour of these subjects laid the foundation for everything that followed in my IT career.",
+                "spans": []
+              }
+            ],
+            "summary_tags": {
+              "accent": "gold",
+              "tags": [
+                "Mathematics",
+                "Physical Sciences",
+                "Engineering Graphics"
+              ]
+            },
+            "quote": {
+              "text": "Integrity, Loyalty, Excellence.",
+              "source": "School motto"
+            },
+            "milestones": null,
+            "tech_groups": null,
+            "modules": null,
+            "notes": null,
+            "tools": null,
+            "research": null,
+            "gallery": {
+              "title": "Back Then",
+              "items": [
+                {
+                  "url": "/images/projects/detail/hoer-volkskool-heidelberg-1.jpg",
+                  "alt": "Pupils writing at wooden desks in a classroom",
+                  "caption": "Classroom",
+                  "width": 1200,
+                  "height": 889
+                },
+                {
+                  "url": "/images/projects/detail/hoer-volkskool-heidelberg-2.jpg",
+                  "alt": "Graduates silhouetted on a hill throwing their caps into the air at sunset",
+                  "caption": "Graduation",
+                  "width": 1200,
+                  "height": 798
+                }
+              ]
+            }
+          }
         }
       ],
       "page_title": "Projects — Conrad du Toit",
-      "page_description": "Work experience and academic background — from high school through to Honours research at the University of Pretoria."
+      "page_description": "Work experience and academic background — from high school through to Honours research at the University of Pretoria.",
+      "discover_label": "Discover",
+      "back_label": "All projects"
     },
     "about": {
       "page_title": "About — Conrad du Toit",

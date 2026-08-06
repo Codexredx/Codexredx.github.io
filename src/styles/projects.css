@@ -68,6 +68,7 @@
 }
 
 .project-card .card-media {
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -169,11 +170,21 @@
   color: #f5d7e3;
 }
 
+.project-card .card-title a:hover {
+  color: #2de2e6;
+}
+
+.project-card .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 .project-card .card-link {
   font-family: VCR OSD Mono, monospace;
   font-size: 12px;
   text-transform: uppercase;
-  margin-top: 20px;
   padding: 10px 25px;
   border: 1px solid #f5d7e3;
   width: max-content;
@@ -181,6 +192,17 @@
 
 .project-card .card-link:hover {
   background-color: #f5d7e3;
+  color: #0d0221;
+}
+
+/* Discover is the card's own page — the one action every card has. */
+.project-card .card-link.primary {
+  border-color: #2de2e6;
+  color: #2de2e6;
+}
+
+.project-card .card-link.primary:hover {
+  background-color: #2de2e6;
   color: #0d0221;
 }
 
