@@ -33,10 +33,20 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: List build output
+        run: |
+          echo "Dist contents:" && ls -la ./dist || true
+          echo "Dist size:" && du -sh ./dist || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+
+      - name: Pause to allow artifact indexing
+        run: |
+          echo "Waiting 6s for artifact indexing..."
+          sleep 6
 
   deploy:
     needs: build
