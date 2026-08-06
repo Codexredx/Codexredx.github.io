@@ -64,7 +64,7 @@ jobs:
           printf '%s' "$response" > /tmp/pages_deploy_resp.json
           # If response is valid JSON, extract any in-progress/queued/deploying deployments
           if jq -e . /tmp/pages_deploy_resp.json >/dev/null 2>&1; then
-            ids=$(jq -r '.[]? // .deployments?[]? | select(.status=="in_progress" or .status=="queued" or .status=="deploying") | .id' /tmp/pages_deploy_resp.json)
+            ids=$(jq -r 'try (if type=="array" then (.[]? | select(type=="object") | select(.status=="in_progress" or .status=="queued" or .status=="deploying") | .id) elif has("deployments") then (.deployments[]? | select(type=="object") | select(.status=="in_progress" or .status=="queued" or .status=="deploying") | .id) else empty end) catch empty' /tmp/pages_deploy_resp.json || true)
             if [ -z "$ids" ]; then
               echo "No in-progress Pages deployments found."
             else
