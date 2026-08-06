@@ -25,7 +25,7 @@
       },
       {
         "label": "Based in",
-        "value": "Pretoria / Heidelberg, South Africa",
+        "value": "Randburg, South Africa",
         "url": null
       }
     ],
@@ -47,7 +47,7 @@
     "footer_pages_title": "Pages",
     "footer_social_title": "Socials",
     "footer_contact_title": "Contact",
-    "footer_location": "Pretoria / Heidelberg, South Africa"
+    "footer_location": "Randburg, South Africa"
   },
   "pages": {
     "home": {
@@ -464,8 +464,7 @@
             "Python",
             "TensorFlow",
             "scikit-learn",
-            "NLTK / spaCy",
-            "OpenCV",
+            "Numpy",
             "Pandas"
           ],
           "link": null,
@@ -558,7 +557,6 @@
                 "Python",
                 "TensorFlow",
                 "scikit-learn",
-                "NLTK / spaCy",
                 "Pandas",
                 "NumPy",
                 "Jupyter",
@@ -913,7 +911,7 @@
       "interests_tags": [
         "Automobiles",
         "Machine Learning",
-        "Data Engineering",
+        "Data Science",
         "Video Games",
         "Open Source"
       ],
